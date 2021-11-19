@@ -67,3 +67,4 @@ end
 
 gem 'simple_form'
 gem "tailwindcss-rails", "~> 0.5.1"
+gem 'simple_form-tailwind'
