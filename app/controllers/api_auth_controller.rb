@@ -10,7 +10,7 @@ class ApiAuthController < ApplicationController
     uri = URI.parse "http://bluewave.com/#{auth_params[:bluewave_ip]}" #TODO get actual domain
     http = Net::HTTP uri.host, uri.port
 
-    http.use_ssl = true if uri.scheme == 'https' # Use SSL, SHould probably be default
+    http.use_ssl = true if uri.scheme == 'https' # Use SSL, Should probably be default
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     req = Net::HTTP::Post.new(uri.request_uri, xml_headers)
@@ -19,8 +19,15 @@ class ApiAuthController < ApplicationController
     p "[*] Status Code: #{res.code}"
     p "[*] Headers: #{res.to_h}"
     p "[*] Body: #{res.body }"
-    #TODO find where token is within res -> Save locally to cookies
+    @auth_token = res["Auth Token"] #TODO get actual auth_token
+    cookies.encrypted[:bluewave_token] = {:value => @auth_token, expires: 24.hours.from_now}
+    #
+    # Cookie retrieval -> decryption is automatic and implicit example:
+    #  variable = cookies[:bluewave_token]
+    #
+    # TODO add set_cookie helper, encrypt, 24 hr expire by defualt
     # TODO get responses for wrong username, password and IP, flash these on :new when they occur
+    # TODO redirect to blue wave API interface
   end
 
   private
