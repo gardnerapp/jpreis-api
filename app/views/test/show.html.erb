@@ -1,0 +1,28 @@
+<div>
+  <h1 class="text-xl font-bold">Test#show</h1>
+  <p>Find me in app/views/test/show.html.erb</p>
+
+  <!--
+    create stimulus controller for entire response
+    create stimulus controller for each pair
+    hide/show buttons
+  -->
+  <div data-controller="response">
+    <% @resp.each do |h| %>
+      <div data-controller="response-index">
+        <% h.each do |k, v| %>
+
+          <div data-controller="response-pair">
+            <h2>
+              <span><%= k %></span> => <span><%= v %></span>
+            </h2>
+          </div>
+          <br/>
+
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+

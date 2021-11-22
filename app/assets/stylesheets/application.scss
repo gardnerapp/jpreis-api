@@ -1,0 +1,21 @@
+html, body {
+   h1, h2, h3, h4, h5 ,h6{
+    font-family: Lato Heavy, Lato, sans-serif;
+     color: $off-black;
+    /* TODO what is on-line vs offline */
+  }
+  p{
+    font-family: Sergo UI;
+    color: $off-black;
+  }
+}
+
+$orange: #eeb902;
+$yellow: #EEE82c;
+$green1: #98f734;
+$green2: #52e017;
+$blue1: #336584;
+$blue2: #151A5D;
+$grey: #505050;
+$off-black: #030;
+$red: #f00; /* Question on RAG and when to use*/
