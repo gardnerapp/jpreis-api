@@ -1,0 +1,28 @@
+<% label_class = 'text-sm font-medium text-gray-600 '%>
+<% input_class = 'shadow  border border-gray-300 rounded w-full py-2 px-3 bg-white focus:outline-none focus:ring-0 focus:border-blue-500 text-gray-400 leading-6 transition-colors duration-200 ease-in-out' %>
+<% button_class = 'my-2 go-button text-white font-bold text-sm py-2 px-4 rounded' %>
+
+<div class="h-full w-full max-w-xs mx-auto align-middle" data-controller="bluewave-login">
+  <h2>Blue Wave Authentication</h2>
+
+  <label class="<%= label_class %>">IP</label>
+  <input type="text" data-bluewave-login-target="address" class="<%= input_class %>">
+
+  <label class="<%= label_class %>">Username</label>
+  <input type="text" data-bluewave-login-target="username" class="<%= input_class %>">
+
+  <label class=<%= label_class %>>Password</label>
+  <input type="text" data-bluewave-login-target="password" class="<%= input_class %>">
+
+  <button data-action="click->bluewave-login#login"class="<%=button_class %>">
+    Login
+  </button>
+
+  <label class=<%= label_class %>>Auth Token</label>
+  <input type="text" data-bluewave-login-target="authToken" class="<%= input_class %>">
+
+</div>
+
+
+
+

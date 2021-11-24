@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JpreisApi</title>
+    <title>JP Reis </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "inter-font", "data-turbo-track": "reload" %>
@@ -12,6 +12,24 @@
   </head>
 
   <body>
+  <%= render "layouts/navbar" %>
+  <% flash.each do |msg_typ, msg| %>
+    <div class="<%= msg_typ == "success" ? "success" : "danger" %>">
+      <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between flex-wrap">
+          <div class="w-0 flex-1 flex items-center">
+            <p class="ml-3 font-medium text-white truncate">
+          <span class="md:hidden">
+          </span>
+              <span class="hidden md:inline">
+            <%= msg %>
+          </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>

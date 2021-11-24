@@ -1,0 +1,62 @@
+/* Variables */
+:root{
+    --orange: #eeb902;
+    --yellow: #EEE82c;
+    --green1: #98f734;
+    --green2: #52e017;
+    --blue1: #336584;
+    --blue2: #151A5D;
+    --grey: #505050;
+    --off-black: #030303;
+    --red: #f00;
+}
+
+/* Global Styles */
+html{
+    font-family: Lato Heavy, serif;
+    color: var(--off-black)
+}
+
+/* Navbar */
+nav{
+    background-color: var(--off-black);
+}
+.nav-hover:hover{
+    background-color: var(--grey);
+}
+
+/* flash*/
+.success{
+    background: var(--green1);
+}
+.danger{
+    background: var(--red);
+}
+
+/* Buttons */
+.go-button{
+    background: var(--blue1);
+}
+
+.go-button:hover{
+    background: var(--blue2);
+}
+
+
+/*
+html, body {
+   h1, h2, h3, h4, h5 ,h6{
+    font-family: Lato Heavy, Lato, sans-serif;
+     color: --off-black;
+    !* TODO what is on-line vs offline *!
+  }
+  p{
+    font-family: Sergo UI, Lato, sans-serif;
+    color: --off-black;
+  }
+}
+*/
+
+
+
+
