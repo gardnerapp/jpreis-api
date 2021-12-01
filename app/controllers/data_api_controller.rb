@@ -4,11 +4,11 @@ class DataApiController < ApplicationController
     @data_api = DataApi.find(params[:id])
   end
 
-  def request
+  def req
 
   end
 
-  def response
+  def resp
   end
 
 end

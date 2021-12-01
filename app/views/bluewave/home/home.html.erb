@@ -1,18 +1,10 @@
 <div class="w-screen h-screen">
-  <div class="grid grid-cols-5 gap-5">
-    <div class="col-span-1 bg-gray-50">
+  <div class="grid grid-cols-5 ">
+    <div class="col-span-2 bg-gray-50">
       <%= render 'bluewave/home/calls' %>
     </div>
-    <div class="col-span-4 m-2 p-2">
-    <div class="flex justify-center">
-      <%= link_to 'Create Session', bluewave_login_path, class: "mr-3 text-white rounded-lg py-3 px-5 success text-white inline-block font-bold" %>
-
-      <%= link_to 'Refresh Session', bluewave_login_path, class: "mr-3 text-white rounded-lg py-3 px-5 bg-gray-100 font-bold  go-button" %>
-
-      <%= button_to 'Destroy Session', root_path, method: :delete,
-                    data: { confirm: "Are you sure you want to delete your current session?" },
-                    class: "text-white rounded-lg py-3 px-5 danger hover:bg-red-500 text-white font-bold" %>
-    </div>
+    <div class="col-span-3 m-2 p-2">
+      <%= render "bluewave/home/sessions" %>
     </div>
   </div>
 </div>

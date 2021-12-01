@@ -8,7 +8,7 @@
       </div>
       <ul data-api-contents-target="dataContent">
         <% DataApi.all.each do |data_api| %>
-          <li><%= link_to data_api.name, data_api %></li>
+          <li><%= link_to data_api.name, data_api, class: "text-lg hover:text-gray-500" %></li>
         <% end %>
       </ul>
     </div>

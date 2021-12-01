@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   root to: 'bluewave/home#home'
 
   resources :data_api, only: :show
-  get '/data_api/response', to: 'data_api#response'
-  post '/data_api', to: 'data_api#request'
+  get '/data_api/response', to: 'data_api#resp'
+  post '/data_api', to: 'data_api#req'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
