@@ -4,7 +4,7 @@ class DataApi < ApplicationRecord
   validates :queryparameters, presence: true
 
   def params
-    queryparameters.split.map { |e| e.gsub(/{[\w]*}/ , " ") }
+    queryparameters.split.map { |e| e.gsub(/{[\w]*}/, "") }
   end
 
 end

@@ -1,11 +1,15 @@
 module DataApiRequestHelper
   require 'faraday'
 
-  def make_request(ip, endpoint, params)
-    base_url = "https://#{ip}/#{endpoint}"
-    params = params.compact
-    params.map {|k,v| base_url.insert(-1, "#{k}#{v}")}
-    Faraday.get(base_url)
+  # TODO set headers with auth_token, and API version
+  def make_request(ip, params)
+    base_url = "https://#{ip}/#{params[:endpoint]}"
+    params.delete(:endpoint)
+    params.delete_if {|k,v| v.empty?}
+    p params
+    params.each_pair {|k,v| base_url.insert(-1, "#{k}#{v}")}
+    p base_url
+    # Faraday.get(base_url)
   end
 
 end
