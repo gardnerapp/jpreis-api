@@ -1,0 +1,7 @@
+<%= simple_form_for :login, url: bluewave_login_path do |f| %>
+  <%= f.input :ip %>
+  <%= f.input :username %>
+  <%= f.input :password %>
+  <%= f.button :submit, "Login" %>
+  <%= f.input :auth_token, input_html: {value: flash[:notice]} %>
+<% end  %>

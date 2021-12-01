@@ -68,4 +68,4 @@ end
 gem 'simple_form'
 gem "tailwindcss-rails", "~> 0.5.1"
 gem 'simple_form-tailwind'
-# TODO Add Postgress to production & development
+gem 'requestjs-rails', :git => "https://github.com/dnwilson/requestjs-rails"

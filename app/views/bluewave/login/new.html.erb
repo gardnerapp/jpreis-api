@@ -4,25 +4,8 @@
 
 <div class="h-full w-full max-w-xs mx-auto align-middle" data-controller="bluewave-login">
   <h2>Blue Wave Authentication</h2>
-
-  <label class="<%= label_class %>">IP</label>
-  <input type="text" data-bluewave-login-target="address" class="<%= input_class %>">
-
-  <label class="<%= label_class %>">Username</label>
-  <input type="text" data-bluewave-login-target="username" class="<%= input_class %>">
-
-  <label class=<%= label_class %>>Password</label>
-  <input type="text" data-bluewave-login-target="password" class="<%= input_class %>">
-
-  <button data-action="click->bluewave-login#login"class="<%=button_class %>">
-    Login
-  </button>
-
-  <label class=<%= label_class %>>Auth Token</label>
-  <input type="text" data-bluewave-login-target="authToken" class="<%= input_class %>">
-
+  <% if flash[:danger] %>
+    <h3>Something went wrong: <%= flash[:danger] %></h3>
+  <% end %>
+  <%= render 'bluewave/login/form' %>
 </div>
-
-
-
-

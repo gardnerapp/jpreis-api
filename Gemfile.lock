@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/dnwilson/requestjs-rails
+  revision: 505f382fad5611d9e72cb8481cb94469d646436d
+  specs:
+    requestjs-rails (0.0.5)
+      rails (>= 6.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -202,6 +209,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.0.alpha2)
   redis (~> 4.0)
+  requestjs-rails!
   selenium-webdriver
   simple_form
   simple_form-tailwind

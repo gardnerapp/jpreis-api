@@ -27,7 +27,7 @@ nav{
 
 /* flash*/
 .success{
-    background: var(--green1);
+    background: var(--green2);
 }
 .danger{
     background: var(--red);
@@ -40,6 +40,10 @@ nav{
 
 .go-button:hover{
     background: var(--blue2);
+}
+
+.success:hover{
+    background: var(--green1);
 }
 
 
@@ -57,6 +61,39 @@ html, body {
 }
 */
 
+.api-contents > h2{
+    font-size: 1.5em;
+}
 
+.dropdown {
+    position: relative;
+}
 
+.dropdown:before {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #f00;
+}
+
+.dropdown:after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 3px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #333;
+}
+
+.none{
+    display: none;
+}
 

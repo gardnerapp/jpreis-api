@@ -1,0 +1,2 @@
+module Bluewave::HomeHelper
+end
