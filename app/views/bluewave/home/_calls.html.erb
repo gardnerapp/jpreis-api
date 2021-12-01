@@ -1,28 +1,31 @@
-<div class="m-2 p-2 api-contents">
-  <h1 class="text-center text-xl">Blue Wave API Calls</h1>
-  <div class="mt-2 p-2">
-    <div data-controller="api-contents" data-api-contents-none-class="none">
-      <div>
-        <h2 class="inline py-1 my-1 text-lg">Data</h2>
-        <button class="inline ml-4 my-1 go-button text-white font-bold py-1 px-4 rounded" data-action="api-contents#dataClicked">Show</button>
-      </div>
-      <ul data-api-contents-target="dataContent">
+<div class="flex justify-center mt-3 ">
+  <h1 class="text-2xl">Blue Wave API Calls</h1>
+</div>
+  <div class="grid grid-cols-4 mt-2 container mx-auto text-center">
+    <div>
+      <h2 class="text-xl">Data</h2>
+      <ul>
         <% DataApi.all.each do |data_api| %>
           <li><%= link_to data_api.name, data_api, class: "text-lg hover:text-gray-500" %></li>
         <% end %>
       </ul>
     </div>
-    <h2 class="text-lg">CTI</h2>
-    <ul>
-      <li></li>
-    </ul>
-    <h2 class="text-lg">Monitoring</h2>
-    <ul>
-      <li></li>
-    </ul>
-    <h2 class="text-lg">Management</h2>
-    <ul>
-      <li></li>
-    </ul>
+    <div>
+      <h2 class="text-xl">CTI</h2>
+      <ul>
+      </ul>
+    </div>
+    <div>
+      <h2 class="text-xl">Monitoring</h2>
+      <ul>
+      </ul>
+    </div>
+    <div>
+      <h2 class="text-xl">Management</h2>
+      <ul>
+      </ul>
+    </div>
   </div>
-</div>
+
+
+

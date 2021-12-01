@@ -1,2 +1,0 @@
-module Bluewave::LoginHelper
-end
