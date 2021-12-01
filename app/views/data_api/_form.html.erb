@@ -3,6 +3,7 @@
     <% @data_api.params.each do |param| %>
       <%= f.input param.to_sym %>
     <% end %>
+    <%= f.hidden_field :endpoint, :input_html => {value: @data_api.endpoint} %>
     <%= f.button :submit, "Make Request" %>
   <% end %>
 </div>

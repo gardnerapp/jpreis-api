@@ -68,4 +68,5 @@ end
 gem 'simple_form'
 gem "tailwindcss-rails", "~> 0.5.1"
 gem 'simple_form-tailwind'
-gem 'requestjs-rails', :git => "https://github.com/dnwilson/requestjs-rails"
+gem 'faraday', '~> 1.8'
+
