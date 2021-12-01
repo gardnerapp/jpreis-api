@@ -7,10 +7,9 @@
         <button class="inline ml-4 my-1 go-button text-white font-bold py-1 px-4 rounded" data-action="api-contents#dataClicked">Show</button>
       </div>
       <ul data-api-contents-target="dataContent">
-        <li>Communication History</li>
-        <li>User Information</li>
-        <li>User Preferences</li>
-        <li>Web API User Info</li>
+        <% DataApi.all.each do |data_api| %>
+          <li><%= link_to data_api.name, data_api %></li>
+        <% end %>
       </ul>
     </div>
     <h2 class="text-lg">CTI</h2>

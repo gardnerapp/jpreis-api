@@ -1,0 +1,6 @@
+<%= simple_form_for :api, url: data_api_path do |f| %>
+  <% @data_api.params.each do |param| %>
+    <%= f.input param.to_sym %>
+    <% end %>
+    <%= f.button :submit, "Request" %>
+<% end %>
