@@ -5,6 +5,7 @@ class DataApiController < ApplicationController
   end
 
   def index
+    # Outline what the Data API is for, link to session paths, list calls 
     @data_calls = DataApi.all
   end
 

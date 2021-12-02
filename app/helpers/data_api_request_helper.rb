@@ -1,8 +1,7 @@
 module DataApiRequestHelper
   require 'faraday'
 
-
-  def make_request(params)
+  def make_request(params, data_api_token)
     base_url = "https://#{params[:ip]}/#{params[:endpoint]}"
     params.delete(:endpoint)
     params.delete(:ip)
@@ -14,10 +13,7 @@ module DataApiRequestHelper
     end
     params.delete_if { |_k,v| v.empty? }
     params.each_pair { |k,v| base_url.insert(-1, "#{k}#{v}") }
-    # Faraday.get(base_url)
-    p base_url
-    Faraday.get("https://google.com")
+    response = Faraday.get(base_url, nil, { 'X-IPCAuthToken': data_api_token, "Content-Type": 'application/xml',
+                                           "X-IPCBWAPIVersion": '2.0/1.2' })
   end
-
-  # Find keys that exists in request, take them out and replace them
 end

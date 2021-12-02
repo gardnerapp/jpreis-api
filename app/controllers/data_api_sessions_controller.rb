@@ -28,6 +28,8 @@ class DataApiSessionsController < ApplicationController
 
     if res.code == 200
       @auth_token = body.at_xpath('//ns1:AuthenticationToken').content
+      cookies.encrypted[:username] = {value: login_params[:username], expires: 95.minutes.from_now}
+      cookies.encrypted[:password] = {value: login_params[:password], expires: 95.minutes.from_now}
       cookies.encrypted[:data_api_token] = {value: @auth_token, expires: 95.minutes.from_now}
       flash[:notice] = @auth_token.to_s
     else
@@ -36,9 +38,8 @@ class DataApiSessionsController < ApplicationController
     redirect_to data_api_index_path
   end
 
-  def refresh; end
-
   # Sends PUT to Refresh Session
+# TODO fix to get values from cookies 
   def update
     @resp = refresh_session(params[:login].to_unsafe_h, cookies[:data_api_token])
     if @resp.status == 200
@@ -51,7 +52,11 @@ class DataApiSessionsController < ApplicationController
   end
 
   # terminates session
-  def destroy; end
+  def destroy #TODO add IP as cookie as well
+    @resp = delete_session('IP', cookies[:data_api_token], cookies[:username], cookies[:password])
+    %i[data_api_token username password].each { |c| cookies.delete(c)}
+    render 'calls/resp'
+  end
 
   private
 
