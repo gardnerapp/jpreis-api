@@ -1,9 +1,9 @@
 <div class="flex justify-center">
-  <%= link_to 'Create Session', bluewave_login_path, class: "mr-3 text-white rounded-lg py-3 px-5 success text-white inline-block font-bold" %>
+  <%= link_to 'Create Data API Session', data_api_login_path, class: "mr-3 text-white rounded-lg py-3 px-5 success text-white inline-block font-bold" %>
 
-  <%= link_to 'Refresh Session', bluewave_login_path, class: "mr-3 text-white rounded-lg py-3 px-5 bg-gray-100 font-bold  go-button" %>
+  <%= link_to 'Refresh Session', data_api_login_path, class: "mr-3 text-white rounded-lg py-3 px-5 bg-gray-100 font-bold  go-button" %>
 
-  <%= button_to 'Destroy Session', root_path, method: :delete,
+  <%= button_to 'Destroy Session', data_api_login_path, method: :delete,
                 data: { confirm: "Are you sure you want to delete your current session?" },
                 class: "text-white rounded-lg py-3 px-5 danger hover:bg-red-500 text-white font-bold" %>
 </div>

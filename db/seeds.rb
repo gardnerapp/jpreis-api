@@ -53,19 +53,15 @@ DataApi.create([{
 &numrecsperpage={numrecsperpage} &type={type}'
                 },
                 {
-                  #TODO fix
                   name: 'Fetch Personal Contacts For User',
-                  endpoint: '/svc/bw/data/user/{loginname}/personal-
-contact?',
-                  queryparameters: 'filtertype={filtertype} &pagenum={pagenum}
+                  endpoint: '/svc/bw/data/user/{loginname}/personal-contact?',
+                  queryparameters: 'loginname filtertype={filtertype} &pagenum={pagenum}
 &numrecsperpage={numrecsperpage}'
                 },
                 {
-                  # TODO fix
                   name: 'Fetch Point of Contact List For Personal Contact',
-                  endpoint: '/svc/bw/data/user/{loginname}/personal-contact/
-{contactid}/poc',
-                  queryparameters: ''
+                  endpoint: '/svc/bw/data/user/{loginname}/personal-contact/{contactid}/poc',
+                  queryparameters: 'loginname contactid'
                 },
                 {
                   name: 'Fetch Enterprise Directory Contacts',
@@ -73,10 +69,10 @@ contact?',
                   queryparameters: 'filtertype={filtertype} &pagenum={pagenum}
 &numrecsperpage={numrecsperpage}'
                 },
-                { # TODO
+                {
                   name: 'Fetch Point Contacts List For Enterprise Contact',
                   endpoint: '/svc/bw/data/enterprise-contact/{contactid}/poc',
-                  queryparameters: ''
+                  queryparameters: 'contactid'
                 },
                 {
                   name: 'Fetch Logon Session Information',
@@ -166,34 +162,4 @@ querystr=',
                   endpoint: '/svc/bw/data/inventory/voicerecorder?',
                   queryparameters: 'querystr={logicalexpression}'
                 },
-                { # TODO fix
-                  name: 'Create a Data Status Monitor Resource',
-                  endpoint: '/svc/bw/data/status-monitor',
-                  queryparameters: ''
-                },
-                { # TODO fix
-                  name: 'Update a Data Status Monitor Resource',
-                  endpoint: '/svc/bw/data/status-monitor/',
-                  queryparameters: 'monitorID{monitorId}'
-                },
-                { # TODO fix
-                  name: 'Fetch Details of a Data Status Monitor Resource',
-                  endpoint: '/svc/bw/data/status-monitor/',
-                  queryparameters: 'monitorID{monitorId}'
-                },
-                { # TODO fix
-                  name: 'Fetch Resource Updates By Polling the Data Status Monitor',
-                  endpoint: '/svc/bw/data/status-monitor/event/',
-                  queryparameters: 'monitorID{monitorId}'
-                },
-                { # TODO fix
-                  name: 'Delete A Data Status Monitor Resource',
-                  endpoint: '/svc/bw/data/status-monitor/',
-                  queryparameters: 'monitorID{monitorId}'
-                },
-
-
-
-
-
                ])

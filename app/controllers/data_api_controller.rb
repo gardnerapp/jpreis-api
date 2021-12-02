@@ -4,4 +4,8 @@ class DataApiController < ApplicationController
     @data_api = DataApi.find(params[:id])
   end
 
+  def index
+    @data_calls = DataApi.all
+  end
+
 end

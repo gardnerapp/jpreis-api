@@ -5,11 +5,12 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'bluewave/login', to: 'bluewave/login#new'
-  post 'bluewave/login', to: 'bluewave/login#create'
+  get '/data_api/login', to: 'data_api_sessions#new'
+  post '/data_api/login', to: 'data_api_sessions#create'
+
   root to: 'bluewave/home#home'
 
-  resources :data_api, only: :show
+  resources :data_api, only: %i[show index]
 
   post '/call', to: 'calls#req'
   get '/call', to: 'calls#resp'
