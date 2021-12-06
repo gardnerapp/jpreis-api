@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_01_140646) do
+ActiveRecord::Schema.define(version: 2021_12_06_133019) do
 
   create_table "data_apis", force: :cascade do |t|
     t.string "name"
     t.string "endpoint"
     t.text "queryparameters"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reference_apis", force: :cascade do |t|
+    t.string "endpoint"
+    t.string "query_param"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+# Create Reference API Calls
+ReferenceApi.create(endpoint: '/svc/bw/api?', query_param: '?schema={name}')
+
+# Create Data API Calls
 DataApi.create([{
                  name: 'Communication History', 
                  endpoint: '/svc/bw/data/communication-history?',

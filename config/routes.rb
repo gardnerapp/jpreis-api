@@ -10,8 +10,13 @@ Rails.application.routes.draw do
 
   root to: 'bluewave/home#home'
 
+  get '/reference', to: 'reference_api#show'
+  post '/reference', to: 'reference_api#create'
+
   resources :data_api, only: %i[show index]
 
   post '/call', to: 'calls#req'
   get '/call', to: 'calls#resp'
+
+  # TODO put reference API on Navbar & data api index, add details to data api, data api session
 end
