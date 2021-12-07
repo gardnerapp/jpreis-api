@@ -11,12 +11,12 @@ class CtiApiController < ApplicationController
 
   # POST cti/call
   def call
-    if params[:api]['MonitorType']
-      xml_req params[:api].to_unsafe_h
-    else
-      plain_req params[:api].to_unsafe_h
-    end
-    #render 'calls/resp'
+    @resp = if params[:api]['MonitorType']
+              xml_req params[:api].to_unsafe_h, "Foo" #TODO get actual auth token
+            else
+              plain_req params[:api].to_unsafe_h, "Foo"
+            end
+    render 'calls/resp'
   end
 
 end

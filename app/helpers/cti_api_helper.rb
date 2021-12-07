@@ -1,5 +1,5 @@
 module CtiApiHelper
-  def xml_req(params)
+  def xml_req(params, auth_token)
     body = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>
 <ns1:CreateMonitor xmlns=\"http://www.ipc.com/bw\">
   <ns1:UserIdentification>#{params['UserIdentification']}</ns1:UserIdentification>"
@@ -23,11 +23,26 @@ module CtiApiHelper
     </ns1:EventCustomization> "
     end
     body << '</ns1:CreateMonitor> '
-    p body
+
+    headers = {
+      "X-IPCBWAPIVersion": '2.0/1.2',
+      'X-IPCAuthToken': auth_token,
+      "Content-Type": 'application/xml'
+    }
+    url = "https://#{params[:ip]}#{params[:endpoint]}"
+    url << params['monitorID'] if params['monitorID']
+    eval "Faraday.#{params[:method]}(url, body, headers)"
   end
 
-  def plain_req(params)
-    puts 'Plain Request'
+  def plain_req(params, auth_token)
+    url = "https://#{params[:ip]}#{params[:endpoint]}#{params['monitorID']}"
+    headers = {
+      "X-IPCBWAPIVersion": '2.0/1.2',
+      'X-IPCAuthToken': auth_token,
+      "Content-Type": 'application/xml'
+    }
+    #eval "Faraday.#{params[:method]}('https://google.com')"
+    eval "Faraday.#{params[:method]}(url, nil, headers)"
   end
 
 end

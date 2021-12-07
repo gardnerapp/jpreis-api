@@ -10,10 +10,39 @@
 CtiMonitorApi.create([{
                        name: 'Create a CTI monitor resource',
                        endpoint: '/svc/bw/cti/monitor',
-                       method: 'POST',
-  # Instructions to set monitor types & filter type seperated by a comma, mute status events seperated by  a common,
+                       method: 'post',
+                       # Instructions to set monitor types & filter type seperated by a comma, mute status events seperated by  a common,
                        xmlparameters: 'UserIdentification MonitorType FilterType MuteStatusEvent',
-                       queryparameters: nil }])
+                       queryparameters: nil 
+},
+                      {
+                        name: 'Fetch a CTI monitor resource',
+                        endpoint: '/svc/bw/cti/monitor/',
+                        method: 'get',
+                        xmlparameters: nil,
+                        queryparameters: 'monitorID'
+                      },
+                      {
+                        name: 'Fetch an event on the CTI monitor resource',
+                        endpoint: '/svc/bw/cti/monitor/event/',
+                        method: 'get',
+                        xmlparameters: nil,
+                        queryparameters: 'monitorID'
+                      },
+                      {
+                        name: 'Update a CTI monitor resource',
+                        endpoint: '/svc/bw/cti/monitor/',
+                        method: 'put',
+                        xmlparameters: 'UserIdentification MonitorType FilterType MuteStatusEvent',
+                        queryparameters: 'monitorID'
+                      },
+                      {
+                        name: 'Delete a CTI monitor resource',
+                        endpoint: '/svc/bw/cti/monitor/',
+                        method: 'delete',
+                        xmlparameters: nil,
+                        queryparameters: 'monitorID'
+                      },])
 
 # Create Data API Calls
 DataApi.create([{
@@ -171,5 +200,4 @@ querystr=',
                   name: 'Fetch Voice Recorder Inventory Information',
                   endpoint: '/svc/bw/data/inventory/voicerecorder?',
                   queryparameters: 'querystr={logicalexpression}'
-                },
-               ])
+                },])

@@ -19,6 +19,7 @@
         <%= f.input param.to_sym %>
       <% end %>
     <% end %>
+    <%= f.hidden_field :method, :value => @cti.method %>
     <%= f.hidden_field :endpoint, :value => @cti.endpoint %>
     <%= f.button :submit, "Make Request" %>
   <% end %>
