@@ -7,7 +7,13 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Create Reference API Calls
-ReferenceApi.create(endpoint: '/svc/bw/api?', query_param: '?schema={name}')
+CtiMonitorApi.create([{
+                       name: 'Create a CTI monitor resource',
+                       endpoint: '/svc/bw/cti/monitor',
+                       method: 'POST',
+  # Instructions to set monitor types & filter type seperated by a comma, mute status events seperated by  a common,
+                       xmlparameters: 'UserIdentification MonitorType FilterType MuteStatusEvent',
+                       queryparameters: nil }])
 
 # Create Data API Calls
 DataApi.create([{

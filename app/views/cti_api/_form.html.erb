@@ -1,0 +1,25 @@
+<div class="pt-2 mt-2">
+  <%= simple_form_for :api, url: cti_call_path do |f| %>
+    <%= f.input :ip %>
+    <% if @cti.query_params? %>
+      <% @cti.query_params.each do |param| %>
+        <%= f.input param.to_sym %>
+      <% end %>
+    <% end %>
+    <% if @cti.xml_params? %>
+      <p class="text-lg font-semibold">Please separate all monitor and filter types with a space.
+        Every monitor type <em>must</em> have a corresponding filter type.
+        Not specifying a corresponding filter type will cause an error</p>
+      <p class="text-lg font-semibold">Please list all events that you do not want to receive in the Mute Status Event form. These should be seperated by spaces</p>
+      <p class="text-lg">
+        Example Monitor Type Input: Unsolicited CallProgress RequestProgress </p>
+      <p class="text-lg">
+        Example Filter Type Input: LineStatus Resource ICM </p>
+      <% @cti.xml_params.each do |param| %>
+        <%= f.input param.to_sym %>
+      <% end %>
+    <% end %>
+    <%= f.hidden_field :endpoint, :value => @cti.endpoint %>
+    <%= f.button :submit, "Make Request" %>
+  <% end %>
+</div>

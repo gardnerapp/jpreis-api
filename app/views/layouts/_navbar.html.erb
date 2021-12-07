@@ -1,4 +1,7 @@
-<% nav_link_list = [["Home", root_path],] %>
+<% nav_link_list = [["Home", root_path], ["Data API Session", data_api_login_path],
+                    ["Data Calls", data_api_index_path], ["Reference Calls", reference_path],
+                    ["CTI Monitor Calls", cti_api_index_path]
+] %>
 <% desktop_class = "nav-hover text-white px-3 py-2 rounded-md text-lg font-medium" %>
 <% mobile_class = "nav-hover text-white block px-3 py-2 rounded-md text-lg font-medium" %>
 <% nav_link_lambda = -> (title, path, style) {link_to(title, path, class: style )} %>
