@@ -2,6 +2,7 @@
   <%= f.input :ip %>
   <%= f.input :username %>
   <%= f.input :password %>
+  <%= f.input :session_type, as: :select, collection: %w[DATA CTI MONITORING ADMINACCTMGMT ENDUSERACCTMGMT] %>
   <%= f.button :submit, "Login" %>
   <%= f.input :auth_token, input_html: {value: flash[:notice]} %>
 <% end  %>

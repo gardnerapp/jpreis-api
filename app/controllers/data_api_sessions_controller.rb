@@ -4,6 +4,14 @@ class DataApiSessionsController < ApplicationController
 
   def new; end
 
+  # possible tokens
+  # data_token
+  # cti_token
+  # monitoring_token
+  # adminacctmgmt_token
+  # enduseracctmgmt_token
+
+
   # creates session
   def create
     uri = URI.parse "https://#{login_params[:ip]}/svc/bw/session"
@@ -18,9 +26,11 @@ class DataApiSessionsController < ApplicationController
     req_body = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>
                 <ns1:CreateSession xmlns:ns1=\"http://www.ipc.com/bw\">
                   <ns1:SessionInfo>
-                    <ns1:ClientType>DATA</ns1:ClientType>
+                    <ns1:ClientType>#{login_params[:session_type]}</ns1:ClientType>
                   </ns1:SessionInfo>
                 </ns1:CreateSession>"
+
+    type = login_params[:session_type].downcase
 
     res = http.request(req, req_body) # make request
 
@@ -30,7 +40,7 @@ class DataApiSessionsController < ApplicationController
       @auth_token = body.at_xpath('//ns1:AuthenticationToken').content
       cookies.encrypted[:username] = {value: login_params[:username], expires: 95.minutes.from_now}
       cookies.encrypted[:password] = {value: login_params[:password], expires: 95.minutes.from_now}
-      cookies.encrypted[:data_api_token] = {value: @auth_token, expires: 95.minutes.from_now}
+      cookies.encrypted["#{type}_token"] = {value: @auth_token, expires: 95.minutes.from_now}
       flash[:notice] = @auth_token.to_s
     else
       flash[:danger] = "Response Code #{res.code}"
@@ -68,7 +78,7 @@ class DataApiSessionsController < ApplicationController
   end
 
   def login_params
-    params.require(:login).permit %i[ip username password auth_token]
+    params.require(:login).permit %i[ip username password session_type auth_token]
   end
 
 end
