@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   get '/data_api/login', to: 'data_api_sessions#new'
   post '/data_api/login', to: 'data_api_sessions#create'
-  # todo refresh and destroy sessions, ip
+  get '/refresh', to: 'data_api_sessions#refresh'
+  post '/refresh', to: 'data_api_sessions#update'
+  get '/terminate', to: 'data_api_sessions#terminate'
+  post '/terminate', to: 'data_api_sessions#destroy'
 
   root to: 'data_api#index'
 
@@ -20,6 +23,4 @@ Rails.application.routes.draw do
 
   post '/call', to: 'calls#req'
   get '/call', to: 'calls#resp'
-
-  # TODO put reference API on Navbar & data api index, add details to data api, data api session
 end

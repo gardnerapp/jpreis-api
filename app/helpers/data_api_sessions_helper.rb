@@ -1,16 +1,16 @@
 module DataApiSessionsHelper
   require 'faraday'
 
-  def refresh_session(params, token)
+  def refresh_session(params, token, username, password)
     body = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>
 <ns1:RefreshSession xmlns:ns1=\"http://www.ipc.com/bw \">
   <ns1:SessionInfo>
-      <ns1:ClientType>DATA</ns1:ClientType>
+      <ns1:ClientType>#{params[:session_type]}</ns1:ClientType>
   </ns1:SessionInfo>
 </ns1:RefreshSession>"
-    
+
     con = Faraday.new("https://#{params[:ip]}")
-    con.basic_auth(params[:username],params[:password])
+    con.basic_auth(username, password)
     con.headers = {
       "Content-Type": 'application/xml',
       "X-IPCBWAPIVersion": '2.0/1.2',
@@ -22,7 +22,7 @@ module DataApiSessionsHelper
 
   def delete_session(ip, token, username, password)
     con = Faraday.new("https://#{ip}")
-    con.basic_auth username, password 
+    con.basic_auth username, password
     con.headers = {
       "Content-Type": 'application/xml',
       "X-IPCBWAPIVersion": '2.0/1.2',
