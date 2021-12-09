@@ -1,4 +1,7 @@
-<div>
-  <h1 class="text-xl font-bold">CallApi#show</h1>
-  <p>Find me in app/views/call_api/show.html.erb</p>
-<div>
+<div class="container mx-auto">
+  <h1 class="text-xl"><%= @call.name %></h1>
+  <h2 class="text-lg">Endpoint: <%= @call.endpoint %></h2>
+  <br/>
+  <p class="text-lg"> Please Enter Your Query Parameters</p>
+  <%= render "call_api/form" %>
+</div>

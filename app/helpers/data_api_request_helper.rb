@@ -1,8 +1,9 @@
 module DataApiRequestHelper
   require 'faraday'
+  include RequestHelper
 
   def make_request(params, data_api_token)
-    base_url = "https://#{params[:ip]}/#{params[:endpoint]}"
+    base_url = "https://#{params[:ip]}#{params[:endpoint]}"
     params.delete(:endpoint)
     params.delete(:ip)
     params.each_pair do |k,v|
@@ -14,6 +15,6 @@ module DataApiRequestHelper
     params.delete_if { |_k,v| v.empty? }
     params.each_pair { |k,v| base_url.insert(-1, "#{k}#{v}") }
     response = Faraday.get(base_url, nil, { 'X-IPCAuthToken': data_api_token, "Content-Type": 'application/xml',
-                                           "X-IPCBWAPIVersion": '2.0/1.2' })
+                                    "X-IPCBWAPIVersion": '2.0/1.2' })
   end
 end
