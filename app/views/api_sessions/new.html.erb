@@ -1,9 +1,13 @@
 <div class="h-full w-full max-w-xs mx-auto align-middle">
-  <h1>Terminate Session</h1>
-  <p>Please select the type of session you are terminating</p>
-  <%= simple_form_for :login, url: refresh_path do |f| %>
+  <h2>Create API Session</h2>
+
+  <%= simple_form_for :login, url: sessions_path do |f| %>
     <%= f.input :ip %>
+    <%= f.input :username %>
+    <%= f.input :password %>
     <%= f.input :session_type, as: :select, collection: %w[DATA CTI MONITORING ADMINACCTMGMT ENDUSERACCTMGMT] %>
     <%= f.button :submit, "Login" %>
+    <%= f.input :auth_token, input_html: {value: flash[:notice]} %>
   <% end  %>
+
 </div>

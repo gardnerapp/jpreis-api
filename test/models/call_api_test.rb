@@ -1,6 +1,6 @@
 require "test_helper"
 
-class DataApiSessionsControllerTest < ActionDispatch::IntegrationTest
+class CallApiTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

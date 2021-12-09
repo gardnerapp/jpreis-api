@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_150935) do
+ActiveRecord::Schema.define(version: 2021_12_08_172708) do
+
+  create_table "call_apis", force: :cascade do |t|
+    t.string "name"
+    t.string "endpoint"
+    t.string "method"
+    t.string "queryparameters"
+    t.string "xmlparameters"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "cti_monitor_apis", force: :cascade do |t|
     t.string "name"

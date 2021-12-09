@@ -1,0 +1,9 @@
+<div class="h-full w-full max-w-xs mx-auto align-middle">
+  <h1>Refresh Session</h1>
+  <p>Please select the type of session you are refreshing</p>
+  <%= simple_form_for :login, url: sessions_refresh_path do |f| %>
+    <%= f.input :ip %>
+    <%= f.input :session_type, as: :select, collection: %w[DATA CTI MONITORING ADMINACCTMGMT ENDUSERACCTMGMT] %>
+    <%= f.button :submit, "Login" %>
+  <% end  %>
+</div>

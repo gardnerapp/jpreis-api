@@ -1,6 +1,7 @@
 class CtiApiController < ApplicationController
+  before_action :cti_token_filter, only: :call
   include CtiApiHelper
-  # todo start monitor sessions
+
   def index
     @cti = CtiMonitorApi.all
   end

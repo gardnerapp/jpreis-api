@@ -1,4 +1,4 @@
-class DataApiSessionsController < ApplicationController
+class ApiSessionsController < ApplicationController
   require 'net/http'
   include DataApiSessionsHelper
 
@@ -67,7 +67,7 @@ class DataApiSessionsController < ApplicationController
   end
 
   # terminates session
-  def destroy 
+  def destroy
     @token = "#{params[:login][:session_type]}_token"
     @resp = delete_session(params[:login][:ip], cookies[@token], cookies[:username], cookies[:password])
     [@token, 'username', 'password'].each { |c| cookies.delete(c) }

@@ -6,7 +6,73 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# Create Reference API Calls
+# Create Call API calls
+CallApi.create([{
+                  name: 'Create a call resource',
+                  endpoint: '/svc/bw/cti/call',
+                  method: 'post',
+                  queryparameters: nil,
+                  xmlparameters: '', # TODO
+                },
+                {
+                  name: 'Fetch a call resource',
+                  endpoint: '/svc/bw/cti/call/{resourceID}',
+                  method: 'get',
+                  queryparameters: 'resourceID',
+                  xmlparameters: nil,
+                },
+                {
+                  name: 'Delete a call resource',
+                  endpoint: '/svc/bw/cti/call/{resourceID}',
+                  method: 'delete',
+                  queryparameters: 'resourceID',
+                  xmlparameters: nil,
+                },
+                {
+                  name: 'Signal a private line call',
+                  endpoint: '/svc/bw/cti/call/{resourceID}/signaling',
+                  method: 'put',
+                  queryparameters: 'resourceID',
+                  xmlparameters: nil,
+                },
+                {
+                  name: 'Hold a line call',
+                  endpoint: '/svc/bw/cti/call/{resourceID}/hold',
+                  method: 'put',
+                  queryparameters: 'resourceID',
+                  xmlparameters: nil,
+                },
+                {
+                  name: 'Dial digits',
+                  endpoint: '/svc/bw/cti/call/{resourceID}?digits={dial-digits}',
+                  method: 'put',
+                  queryparameters: 'resourceID dial-digits',
+                  xmlparameters: nil,
+                },
+                {
+                  name: 'Add or remove a party in a line call',
+                  endpoint: '/svc/bw/cti/call/{resourceID}/conference',
+                  method: 'put',
+                  queryparameters: 'resourceID',
+                  xmlparameters: nil,# TODO
+                },
+                {
+                  name: 'Transfer a line cal',
+                  endpoint: '/svc/bw/cti/call/{resourceID}/transferral',
+                  method: 'put',
+                  queryparameters: 'resourceID',
+                  xmlparameters: nil,# TODO
+                },
+                {
+                  name: 'Complete a line call transfer',
+                  endpoint: '/svc/bw/cti/call/{resourceID}/transferralcompletion',
+                  method: 'put',
+                  queryparameters: 'resourceID',
+                  xmlparameters: nil,
+                },
+               ])
+
+# Create CTI Monitor API Calls
 CtiMonitorApi.create([{
                        name: 'Create a CTI monitor resource',
                        endpoint: '/svc/bw/cti/monitor',

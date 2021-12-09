@@ -1,0 +1,2 @@
+class CallApi < ApplicationRecord
+end
