@@ -1,33 +1,29 @@
 <div class="container mx-auto">
   <h1 class="text-2xl text-center">CTI Monitor API</h1>
-  <h2 class="text-lg">The CTI Monitor API enables a client application to receive notification of the progress of a request or
-    of a change in status of a resource. This notification is in the form of different types of events. By setting
-    up a monitor, the application indicates that it is interested in receiving events on the monitor for a Unigy
-    end user.</h2>
-  <h3 class="text-lg font-semibold">Functionality</h3>
-  <h2 class="text-lg">Use the CTI Monitor API to retrieve the following types of information:</h2>
-  <ul class="text-lg list-disc m-2">
-    <li><span class="font-bold"> Create a CTI monitor resource:</span> Informs the Web service to be prepared to send specified events
-      for a Unigy end user to the client application.</li>
-    <li><span class="font-bold">Fetch information on an existing CTI monitor resource:</span> Returns the current representation of the
-      CTI monitor resource for a Unigy end user.</li>
-    <li><span class="font-bold">Fetch an event on an existing CTI monitor resource:</span> Fetches the next event on the CTI monitor
-      resource for a Unigy end user.
-      </li>
-    <li><span class="font-bold">Update an existing CTI monitor resource:</span> Changes the type of filter that is associated with the CTI
-      monitor resource for a Unigy end user</li>
-    <li><span class="font-bold">Delete an existing CTI monitor resource:</span> Removes the CTI monitor resource for a Unigy end user.
-      The Web service stops collecting events on this monitor resource and deletes any events that have not
-      been retrieved</li>
-  </ul>
-  <h4 class="text-lg">Please be sure to start a
-    <%= link_to "Data API Session", data_api_login_path, class: "font-bold hover:text-gray-500" %>
-    before making calls to the Data API. Sessions Expire after 90 minutes unless
-    <%= link_to "Refreshed", data_api_login_path, class: "font-bold hover:text-gray-500"%> . You can close
-    your current Session <%= link_to "Here", data_api_login_path, class: "font-bold hover:text-gray-500"%>
-  </h4>
-
-  <br/>
+  <%= render "api_sessions/session_nav" %>
+  <div class="my-4">
+    <h2 class="text-xl">The CTI Monitor API enables a client application to receive notification of the progress of a request or
+      of a change in status of a resource. This notification is in the form of different types of events. By setting
+      up a monitor, the application indicates that it is interested in receiving events on the monitor for a Unigy
+      end user.</h2>
+    <div class="my-2">
+      <h2 class="text-xl">Use the CTI Monitor API to retrieve the following types of information:</h2>
+      <ul class="text-xl list-disc m-2">
+        <li><span class="font-bold"> Create a CTI monitor resource:</span> Informs the Web service to be prepared to send specified events
+          for a Unigy end user to the client application.</li>
+        <li><span class="font-bold">Fetch information on an existing CTI monitor resource:</span> Returns the current representation of the
+          CTI monitor resource for a Unigy end user.</li>
+        <li><span class="font-bold">Fetch an event on an existing CTI monitor resource:</span> Fetches the next event on the CTI monitor
+          resource for a Unigy end user.
+        </li>
+        <li><span class="font-bold">Update an existing CTI monitor resource:</span> Changes the type of filter that is associated with the CTI
+          monitor resource for a Unigy end user</li>
+        <li><span class="font-bold">Delete an existing CTI monitor resource:</span> Removes the CTI monitor resource for a Unigy end user.
+          The Web service stops collecting events on this monitor resource and deletes any events that have not
+          been retrieved</li>
+      </ul>
+    </div>
+  </div>
   <div class="grid grid-cols-2">
     <% @cti.each do |call| %>
       <%= link_to call.name, cti_api_path(call),  class: "text-lg hover:text-gray-500" %>

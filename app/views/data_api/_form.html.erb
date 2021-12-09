@@ -1,5 +1,5 @@
 <div class="pt-2 mt-2">
-  <%= simple_form_for :api, url: call_path do |f| %>
+  <%= simple_form_for :api, url: data_call_path do |f| %>
     <%= f.input :ip %>
     <% @data_api.params.each do |param| %>
       <%= f.input param.to_sym %>

@@ -17,9 +17,4 @@ Rails.application.routes.draw do
   resources :cti_api, only: %i[show index]
   post '/cti/call', to: 'cti_api#call'
 
-  post '/call', to: 'calls#req'
-  get '/call', to: 'calls#resp'
-
-  # TODO make sure the correct token is being used for the data and cti monitoring api
-  # list tokens and their corresponding apis in sessions
 end
