@@ -23,4 +23,10 @@ Rails.application.routes.draw do
   resources :call_api, only: %i[show index]
   post '/call/call', to: 'call_api#call'
 
+  # Todo figure out xml k/v pairs for call api
+  # how to render these into forms,
+  # once form is submitted differentite between xml and plain req
+  #
+  #
+  # xml params write out as hash
 end

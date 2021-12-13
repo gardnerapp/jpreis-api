@@ -8,11 +8,24 @@
 
 # Create Call API calls
 CallApi.create([{
-                  name: 'Create a call resource',
+                  # create class,method name is call name,
+
+                  # send method to class
+                  # all this should occur @ model level make req 
+                  # TODO add docs
+                  name: 'Create an ICM call resource',
+                  endpoint: '/svc/bw/cti/call', # if endpoint send module::name w underscores
+                  method: 'post',
+                  queryparameters: nil,
+                  xmlparameters: 'CallUsageType CallCharacteristics CalleeUserId CallerUserID RecordingOption
+                  PrivacyOption AudioDeviceType HandsetSideType',
+                },
+                {
+                  name: 'Create a line call resource',
                   endpoint: '/svc/bw/cti/call',
                   method: 'post',
                   queryparameters: nil,
-                  xmlparameters: '', # TODO
+                  xmlparameters: '',
                 },
                 {
                   name: 'Fetch a call resource',
