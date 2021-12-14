@@ -11,5 +11,8 @@ WORKDIR /var/app
 
 RUN bundle install
 
+CMD rails db:migrate
+CMD rails db:seed
+
 CMD rails s -b 0.0.0.0
 
