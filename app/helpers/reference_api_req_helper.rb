@@ -7,4 +7,8 @@ module ReferenceApiReqHelper
     #Faraday.get('https://www.google.com')
     Faraday.get("https://#{params[:ip]}//svc/bw/api?/schema=#{params[:schema]}", HEADERS)
   end
+
+  def foo
+    @headers
+  end
 end
