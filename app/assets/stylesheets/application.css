@@ -28,9 +28,7 @@ p, li, span {
 nav{
     background-color: var(--off-black);
 }
-.nav-hover:hover{
-    background-color: var(--grey);
-}
+
 
 /* flash*/
 .success{
