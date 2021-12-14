@@ -13,8 +13,15 @@
 
 /* Global Styles */
 html{
-    font-family: Lato Heavy, serif;
     color: var(--off-black)
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Lato Heavy, Segeo UI Bold ;
+}
+
+p, li, span {
+    font-family: Lato regular, Segeo UI ;
 }
 
 /* Navbar */
@@ -46,20 +53,6 @@ nav{
     background: var(--green1);
 }
 
-
-/*
-html, body {
-   h1, h2, h3, h4, h5 ,h6{
-    font-family: Lato Heavy, Lato, sans-serif;
-     color: --off-black;
-    !* TODO what is on-line vs offline *!
-  }
-  p{
-    font-family: Sergo UI, Lato, sans-serif;
-    color: --off-black;
-  }
-}
-*/
 
 .api-contents > h2{
     font-size: 1.5em;
