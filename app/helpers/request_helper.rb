@@ -1,10 +1,12 @@
 module RequestHelper
-
+  require 'faraday'
+  # todo make call/resp render err check class type
   HEADERS = { "X-IPCBWAPIVersion": '2.0/1.2',
               "Content-Type": 'application/xml'}
 
   # creates instance variables required for send_req
   def create_req_args(params, body, token)
+    @method = params[:method]
     @url = "https://#{params[:ip]}#{params[:endpoint]}"
     @body ||= body
     header_token(token) if token

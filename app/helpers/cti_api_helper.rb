@@ -1,8 +1,7 @@
 module CtiApiHelper
   include RequestHelper
-  require 'faraday'
 
-  def xml_req(params, auth_token)
+  def xml_req(params, token)
     body = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>
 <ns1:CreateMonitor xmlns=\"http://www.ipc.com/bw\">
   <ns1:UserIdentification>#{params['UserIdentification']}</ns1:UserIdentification>"
@@ -27,21 +26,15 @@ module CtiApiHelper
     end
     body << '</ns1:CreateMonitor> '
 
-    header_token auth_token
-
-    url = "https://#{params[:ip]}#{params[:endpoint]}"
-    url << params['monitorID'] if params['monitorID']
-    eval "Faraday.#{params[:method]}(url, body, @headers)"
+    create_req_args params, body, token
+    @url << params['monitorID'] if params['monitorID']
+    send_req
   end
 
   def plain_req(params, auth_token)
-    url = "https://#{params[:ip]}#{params[:endpoint]}#{params['monitorID']}"
-
-
-    header_token auth_token
-
-    #eval "Faraday.#{params[:method]}('https://google.com')"
-    eval "Faraday.#{params[:method]}(url, nil, @headers)"
+    create_req_args params, nil, auth_token
+    @url << params['monitorID']
+    send_req
   end
 
 end

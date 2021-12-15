@@ -1,6 +1,5 @@
 module CallApiReqHelper
   include RequestHelper
-  require 'faraday'
 
   # takes call name and turns it into method name to be evaled/sent
   def to_method(call_name)
