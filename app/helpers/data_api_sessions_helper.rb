@@ -1,6 +1,5 @@
 module DataApiSessionsHelper
   include RequestHelper
-  require 'faraday'
 
   def refresh_session(params, token, username, password)
     header_token token
