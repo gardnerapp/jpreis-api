@@ -3,16 +3,9 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 
 # Create Call API calls
 CallApi.create([{
-                  # create class,method name is call name,
-
-                  # send method to class
-                  # all this should occur @ model level make req 
-                  # TODO add docs
                   name: 'Create an ICM call resource',
                   endpoint: '/svc/bw/cti/call', # if endpoint send module::name w underscores
                   method: 'post',
@@ -22,10 +15,11 @@ CallApi.create([{
                 },
                 {
                   name: 'Create a line call resource',
-                  endpoint: '/svc/bw/cti/call',
+                  endpoint: '/svc/bw/cti/call', # if endpoint send module::name w underscores
                   method: 'post',
                   queryparameters: nil,
-                  xmlparameters: '',
+                  xmlparameters: 'CallUsageType AOR LineAppearance DialString  CallerUserID RecordingOption
+                  PrivacyOption AudioDeviceType HandsetSideType',
                 },
                 {
                   name: 'Fetch a call resource',
