@@ -1,6 +1,7 @@
 class CtiApiController < ApplicationController
-  before_action :cti_token_filter, only: :call
   include CtiApiHelper
+  before_action :cti_token_filter, only: :call
+  before_action -> { set_params_and_token 'cti' }, only: :call
 
   def index
     @cti = CtiMonitorApi.all
@@ -12,11 +13,7 @@ class CtiApiController < ApplicationController
 
   # POST cti/call
   def call
-    @resp = if params[:api]['MonitorType']
-              xml_req params[:api].to_unsafe_h, cookies['cti_token']
-            else
-              plain_req params[:api].to_unsafe_h, cookies['cti_token']
-            end
+    @resp = params[:api['MonitorType']] ? xml_req(@params, @token) : plain_req(@params, @token)
     render 'calls/resp'
   end
 

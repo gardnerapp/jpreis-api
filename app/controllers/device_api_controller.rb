@@ -1,6 +1,7 @@
 class DeviceApiController < ApplicationController
-  include DeviceApiHelper
+  include DeviceApiReqHelper
   before_action :cti_token_filter, only: :call
+  before_action -> { set_params_and_token('token') }, only: :call
 
   def index
     @devices = DeviceApi.all
@@ -11,7 +12,7 @@ class DeviceApiController < ApplicationController
   end
 
   def call
-
+    @resp = params[:xml] ? xml_req(@params, @token) : plain_req(@params, @token)
     render 'calls/resp'
   end
 

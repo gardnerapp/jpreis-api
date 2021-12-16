@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include FilterHelper
+  include ControllerHelper
   #  CTI – to use the CTI Monitor API, Call API, and Device API
   # • DATA – to use the Data API
   # • MONITORING – to use the Monitoring API

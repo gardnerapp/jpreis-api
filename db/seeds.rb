@@ -5,40 +5,39 @@
 #
 
 # Device API Calls
-DeviceApi([
-            {
-             name: 'Fetch the resource ID for a device resource',
-             endpoint: '/svc/bw/cti/device?username={loginname}/',
-             method: 'get',
-             queryparameters: 'loginname',
-             xmlparameters: nil,
-           },
-            {
-              name: 'Fetch the status of a device resource',
-              endpoint: 'svc/bw/cti/device/{resourceID}/status?type={StatusTypes}',
-              method: 'get',
-              queryparameters: 'resourceID StatusTypes',
-              xmlparameters: nil,
-            },
-            {
-              name: 'Update the property of a device resource',
-              endpoint: '/svc/bw/cti/device/{resourceID}',
-              method: 'put',
-              queryparameters: 'resourceID',
-              xmlparameters: 'PropertyName PropertyValue',
-            },
-          ])
-
+DeviceApi.create([
+                   {
+                     name: 'Fetch the resource ID for a device resource',
+                     endpoint: '/svc/bw/cti/device?username={loginname}/',
+                     method: 'get',
+                     queryparameters: 'loginname',
+                     xmlparameters: nil,
+                   },
+                   {
+                     name: 'Fetch the status of a device resource',
+                     endpoint: 'svc/bw/cti/device/{resourceID}/status?type={StatusTypes}',
+                     method: 'get',
+                     queryparameters: 'resourceID StatusTypes',
+                     xmlparameters: nil,
+                   },
+                   {
+                     name: 'Update the property of a device resource',
+                     endpoint: '/svc/bw/cti/device/{resourceID}',
+                     method: 'put',
+                     queryparameters: 'resourceID',
+                     xmlparameters: 'PropertyName PropertyValue',
+                   },
+                 ])
 
 # Call API calls
 CallApi.create([{
-                  name: 'Create an ICM call resource',
+                 name: 'Create an ICM call resource',
                   endpoint: '/svc/bw/cti/call',
                   method: 'post',
                   queryparameters: nil,
                   xmlparameters: 'CallUsageType CallCharacteristics CalleeUserId CallerUserID RecordingOption
                   PrivacyOption AudioDeviceType HandsetSideType',
-                },
+               },
                 {
                   name: 'Create a line call resource',
                   endpoint: '/svc/bw/cti/call',
@@ -127,7 +126,7 @@ CtiMonitorApi.create([{
                        # Instructions to set monitor types & filter type seperated by a comma, mute status events seperated by  a common,
                        xmlparameters: 'UserIdentification MonitorType FilterType MuteStatusEvent',
                        queryparameters: nil 
-},
+                     },
                       {
                         name: 'Fetch a CTI monitor resource',
                         endpoint: '/svc/bw/cti/monitor/',
