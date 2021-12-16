@@ -5,6 +5,29 @@
 #
 
 # Device API Calls
+DeviceApi([
+            {
+             name: 'Fetch the resource ID for a device resource',
+             endpoint: '/svc/bw/cti/device?username={loginname}/',
+             method: 'get',
+             queryparameters: 'loginname',
+             xmlparameters: nil,
+           },
+            {
+              name: 'Fetch the status of a device resource',
+              endpoint: 'svc/bw/cti/device/{resourceID}/status?type={StatusTypes}',
+              method: 'get',
+              queryparameters: 'resourceID StatusTypes',
+              xmlparameters: nil,
+            },
+            {
+              name: 'Update the property of a device resource',
+              endpoint: '/svc/bw/cti/device/{resourceID}',
+              method: 'put',
+              queryparameters: 'resourceID',
+              xmlparameters: 'PropertyName PropertyValue',
+            },
+          ])
 
 
 # Call API calls

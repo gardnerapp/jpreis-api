@@ -31,6 +31,6 @@ Rails.application.routes.draw do
   # Device, DataStatusMonitor, Monitoring 21 calls left
   #
   # TODO add dropdown burger to full navbar do large font
-  #
+  # TODO add device to navbar
 
 end
