@@ -11,7 +11,7 @@ class DeviceApiController < ApplicationController
     @device = DeviceApi.find(params[:id])
   end
 
-  def call
+  def call #TODO add xml param to form
     @resp = params[:xml] ? xml_req(@params, @token) : plain_req(@params, @token)
     render 'calls/resp'
   end

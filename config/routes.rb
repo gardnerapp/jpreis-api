@@ -32,5 +32,6 @@ Rails.application.routes.draw do
   #
   # TODO add dropdown burger to full navbar do large font
   # TODO add device to navbar
+  # #TODO add xml param to form
 
 end
