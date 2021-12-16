@@ -23,9 +23,14 @@ Rails.application.routes.draw do
   resources :call_api, only: %i[show index]
   post '/call/call', to: 'call_api#call'
 
+  resources :device_api, only: %i[show index]
+  post '/device/call', to: 'device_api#call'
+
 
   #
   # Device, DataStatusMonitor, Monitoring 21 calls left
+  #
+  # TODO add dropdown burger to full navbar do large font
   #
 
 end

@@ -1,6 +1,6 @@
 class CallApiController < ApplicationController
   include CallApiReqHelper
-  #before_action :cti_token_filter, only: :call todo uncomment
+  before_action :cti_token_filter, only: :call
 
   def index
     @calls = CallApi.all

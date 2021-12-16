@@ -4,7 +4,10 @@
 # Examples:
 #
 
-# Create Call API calls
+# Device API Calls
+
+
+# Call API calls
 CallApi.create([{
                   name: 'Create an ICM call resource',
                   endpoint: '/svc/bw/cti/call',
