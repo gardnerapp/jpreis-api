@@ -1,0 +1,30 @@
+<div class="container mx-auto">
+  <h1 class="text-2xl text-center">Call API</h1>
+  <%= render "api_sessions/session_nav" %>
+  <div class="my-4">
+    <h2 class="text-xl">
+      The Call API enables a client application to control the life cycle of Unigy calls using call resources.
+      The call resource represents the SIP relationship between two or more endpoints. The endpoints can be
+      Unigy desktop devices, external SIP devices, or both.
+    </h2>
+    <div class="my-2">
+      <h2 class="text-xl">The Call API provides the following functionality: </h2>
+      <ul class="text-xl list-disc m-2">
+        <li><span class="font-bold"> Create a new call resource:</span> Initiates a call, answers a ringing line, or retrieves a held line..</li>
+        <li><span class="font-bold">Fetch information on an existing call resource:</span> Returns the current representation of the
+          Returns information on an existing call.</li>
+        <li><span class="font-bold">Update an existing call resource:</span>
+          Performs operations on an established line call
+        </li>
+        <li><span class="font-bold">Delete an existing call resource:</span>
+          Releases an existing call.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="grid grid-cols-3">
+    <% @calls.each do |call| %>
+      <%= link_to call.name, call, class: "text-lg hover:text-gray-500"%>
+    <% end %>
+  </div>
+</div>

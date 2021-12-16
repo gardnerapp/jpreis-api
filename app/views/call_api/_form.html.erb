@@ -1,0 +1,18 @@
+<%= simple_form_for :api, url: call_call_path do |f| %>
+  <%= f.input :ip %>
+  <% if @call.query_params? %>
+    <% @call.query_params.each do |param| %>
+      <%= f.input param.to_sym %>
+    <% end %>
+  <% end %>
+  <% if @call.xml_params? %>
+    <% @call.xml_params.each do |param| %>
+      <%= f.input param.to_sym %>
+    <% end %>
+    <%= f.hidden_field :xml, :value => true %>
+    <%= f.hidden_field :call_name, :value => @call.name %>
+  <% end %>
+  <%= f.hidden_field :method, :value => @call.method %>
+  <%= f.hidden_field :endpoint, :value => @call.endpoint %>
+  <%= f.button :submit, "Make Request" %>
+<% end %>
