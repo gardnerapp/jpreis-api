@@ -4,18 +4,29 @@ module RequestHelper
   HEADERS = { "X-IPCBWAPIVersion": '2.0/1.2',
               "Content-Type": 'application/xml'}
 
-  # creates instance variables required for send_req
-  def create_req_args(params, body, token)
-    @method = params[:method]
-    @url = "https://#{params[:ip]}#{params[:endpoint]}"
-    @body ||= body
-    header_token(token) if token
-  end
-
   # adds authorization token to @headers instance variable
   def header_token(token)
     @headers = HEADERS
     @headers['X-IPCAuthToken'] = token
+  end
+
+  # creates instance variables required for send_req
+  def create_req_args(params, body, token)
+    @method = params[:method]
+    @url = "https://#{params[:ip]}#{params[:endpoint]}"
+    add_query_params(params)
+    @body ||= body
+    header_token(token) if token
+  end
+
+  # adds query params to @url instance variable
+  def add_query_params(params)
+    params.each_pair do |k, v|
+      if @url.include? k
+        @url = @url.gsub /{#{k}}/, v
+        params.delete k
+      end
+    end
   end
 
   # Sends a request using send
@@ -34,9 +45,4 @@ module RequestHelper
     # Ex. @method = "get" Evaluates to
     # Faraday.get(@url, @body, @headers)
   end
-
-
-  # was prviously on branch call-api-ui
-
-
 end

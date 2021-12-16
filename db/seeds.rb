@@ -7,7 +7,7 @@
 # Create Call API calls
 CallApi.create([{
                   name: 'Create an ICM call resource',
-                  endpoint: '/svc/bw/cti/call', # if endpoint send module::name w underscores
+                  endpoint: '/svc/bw/cti/call',
                   method: 'post',
                   queryparameters: nil,
                   xmlparameters: 'CallUsageType CallCharacteristics CalleeUserId CallerUserID RecordingOption
@@ -15,7 +15,7 @@ CallApi.create([{
                 },
                 {
                   name: 'Create a line call resource',
-                  endpoint: '/svc/bw/cti/call', # if endpoint send module::name w underscores
+                  endpoint: '/svc/bw/cti/call',
                   method: 'post',
                   queryparameters: nil,
                   xmlparameters: 'CallUsageType AOR LineAppearance DialString  CallerUserID RecordingOption
@@ -57,18 +57,32 @@ CallApi.create([{
                   xmlparameters: nil,
                 },
                 {
-                  name: 'Add or remove a party in a line call',
+                  name: 'Retrieve a held line call',
+                  endpoint: '/svc/bw/cti/call/',
+                  method: 'post',
+                  queryparameters: nil,
+                  xmlparameters: 'CallType CallUsageType AOR LineAppearance CallCharacteristics'
+                },
+                {
+                  name: 'Add party line call',
                   endpoint: '/svc/bw/cti/call/{resourceID}/conference',
                   method: 'put',
                   queryparameters: 'resourceID',
-                  xmlparameters: nil,# TODO
+                  xmlparameters: 'AOR LineAppearance DialString'
                 },
                 {
-                  name: 'Transfer a line cal',
+                  name: 'Remove party line call',
+                  endpoint: '/svc/bw/cti/call/{resourceID}/conference',
+                  method: 'put',
+                  queryparameters: 'resourceID',
+                  xmlparameters: 'AOR LineAppearance DialString'
+                },
+                {
+                  name: 'Transfer line call',
                   endpoint: '/svc/bw/cti/call/{resourceID}/transferral',
                   method: 'put',
                   queryparameters: 'resourceID',
-                  xmlparameters: nil,# TODO
+                  xmlparameters: 'AOR LineAppearance TransferTyp'
                 },
                 {
                   name: 'Complete a line call transfer',
