@@ -2,14 +2,14 @@
 
 DataStatusMonitorApi.create( [
                               {
-                                name: 'Create a data status monitor resource',
+                                name: 'Create data status monitor resource',
                                 endpoint: '/svc/bw/data/status-monitor',
                                 method: 'post',
                                 queryparameters: nil,
                                 xmlparameters: 'AOR Appearance MonitorMode'
                               },
                               {
-                                name: 'Update a data status monitor resource',
+                                name: 'Update data status monitor resource',
                                 endpoint: '/svc/bw/data/status-monitor/{monitorid}',
                                 method: 'put',
                                 queryparameters: 'monitorid',
@@ -36,7 +36,6 @@ DataStatusMonitorApi.create( [
                                 queryparameters: 'monitorid',
                                 xmlparameters: nil
                               },
-
                              ])
 
 # Device API Calls
