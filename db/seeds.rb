@@ -1,8 +1,43 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
+# Data Status Monitor starts @ 9.4, only 5 calls 19 clls left
+
+DataStatusMonitorApi.create( [
+                              {
+                                name: 'Create a data status monitor resource',
+                                endpoint: '/svc/bw/data/status-monitor',
+                                method: 'post',
+                                queryparameters: nil,
+                                xmlparameters: 'AOR Appearance MonitorMode'
+                              },
+                              {
+                                name: 'Update a data status monitor resource',
+                                endpoint: '/svc/bw/data/status-monitor/{monitorid}',
+                                method: 'put',
+                                queryparameters: 'monitorid',
+                                xmlparameters: 'AOR Appearance ActionType'
+                              },
+                              {
+                                name: 'Fetch details of a data status monitor resource',
+                                endpoint: '/svc/bw/data/status-monitor/{monitorid}',
+                                method: 'get',
+                                queryparameters: 'monitorid',
+                                xmlparameters: nil
+                              },
+                              {
+                                name: 'Fetch resource updates by polling the data status monitor',
+                                endpoint: '/svc/bw/data/status-monitor/event/{monitorid}',
+                                method: 'get',
+                                queryparameters: 'monitorid',
+                                xmlparameters: nil
+                              },
+                              {
+                                name: 'Delete a data status monitor resource',
+                                endpoint: '/svc/bw/data/status-monitor/{monitorid}',
+                                method: 'get',
+                                queryparameters: 'monitorid',
+                                xmlparameters: nil
+                              },
+
+                             ])
 
 # Device API Calls
 DeviceApi.create([
@@ -26,7 +61,7 @@ DeviceApi.create([
                      method: 'put',
                      queryparameters: 'resourceID',
                      xmlparameters: 'PropertyName PropertyValue',
-                   },
+                   }
                  ])
 
 # Call API calls
@@ -115,7 +150,7 @@ CallApi.create([{
                   method: 'put',
                   queryparameters: 'resourceID',
                   xmlparameters: nil,
-                },
+                }
                ])
 
 # Create CTI Monitor API Calls
@@ -154,7 +189,7 @@ CtiMonitorApi.create([{
                         method: 'delete',
                         xmlparameters: nil,
                         queryparameters: 'monitorID'
-                      },])
+                      }])
 
 # Create Data API Calls
 DataApi.create([{
@@ -312,4 +347,4 @@ querystr=',
                   name: 'Fetch Voice Recorder Inventory Information',
                   endpoint: '/svc/bw/data/inventory/voicerecorder?',
                   queryparameters: 'querystr={logicalexpression}'
-                },])
+                }])

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'data_status_monitor_api/index'
+  get 'data_status_monitor_api/show'
   get 'call_api/index'
   get 'call_api/show'
 
@@ -33,5 +35,7 @@ Rails.application.routes.draw do
   # TODO add dropdown burger to full navbar do large font
   # TODO add device to navbar
   # #TODO add xml param to form
+  # TODO go through todos
+  # merge device-ui to data-status-monitor-api
 
 end
