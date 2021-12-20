@@ -10,7 +10,7 @@
       <%= f.input param.to_sym %>
     <% end %>
     <%= f.hidden_field :xml, :value => true %>
-    <%= f.hidden_field :call_name, :value => @call.name %>
+    <%= f.hidden_field :call_id, :value => @call.id %>
   <% end %>
   <%= f.hidden_field :method, :value => @call.method %>
   <%= f.hidden_field :endpoint, :value => @call.endpoint %>

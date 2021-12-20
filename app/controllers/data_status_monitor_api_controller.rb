@@ -4,4 +4,7 @@ class DataStatusMonitorApiController < ApplicationController
 
   def show
   end
+
+  def call
+  end
 end
