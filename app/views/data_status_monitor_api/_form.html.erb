@@ -1,0 +1,18 @@
+<%= simple_form_for :api, url: data_status_monitor_api_path do |f| %>
+  <%= f.input :ip %>
+  <% if @data.query_params? %>
+    <% @data.query_params.each do |param| %>
+      <%= f.input param.to_sym %>
+    <% end %>
+  <% end %>
+  <% if @data.xml_params? %>
+    <% @data.xml_params.each do |param| %>
+      <%= f.input param.to_sym %>
+    <% end %>
+    <%= f.hidden_field :xml, :value => true %>
+    <%= f.hidden_field :call_id, :value => @data.id %>
+  <% end %>
+  <%= f.hidden_field :method, :value => @data.method %>
+  <%= f.hidden_field :endpoint, :value => @data.endpoint %>
+  <%= f.button :submit, "Make Request" %>
+<% end %>

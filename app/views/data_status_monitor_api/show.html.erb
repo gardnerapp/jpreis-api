@@ -1,4 +1,8 @@
 <div>
-  <h1 class="text-xl font-bold">DataStatusMonitorApi#show</h1>
-  <p>Find me in app/views/data_status_monitor_api/show.html.erb</p>
-<div>
+  <%= render "api_sessions/session_nav" %>
+  <h1 class="text-xl"><%= @data.name %></h1>
+  <h2 class="text-lg">Endpoint: <%= @data.endpoint %></h2>
+  <br/>
+  <p class="text-lg"> Please Enter Your Query Parameters</p>
+  <%= render 'data_status_monitor_api/form' %>
+</div>
