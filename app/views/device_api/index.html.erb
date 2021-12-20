@@ -1,0 +1,30 @@
+<div class="container mx-auto">
+  <h1 class="text-2xl text-center">Device API</h1>
+  <%= render "api_sessions/session_nav" %>
+  <div class="my-4">
+    <h2 class="text-xl">
+      The Device API enables a client application to control device characteristics and behavior. The Device
+      API operates on device resources.
+      Device resources are different from other resources in that the client application cannot create a new
+      device resource. The application can only control and modify an existing device resource, because this
+      resource represents an actual desktop device. Each device resource is identified only as an addressable
+      resource rather than as a resource to be created.
+    </h2>
+    <div class="my-2">
+      <h2 class="text-xl">The Call API provides the following functionality: </h2>
+      <ul class="text-xl list-disc m-2">
+        <li><span class="font-bold">Fetch the resource ID for an existing device resource:</span> Retrieves the unique identification of the
+          device resource.</li>
+        <li><span class="font-bold">Fetch the status of a device resource:</span> Retrieves the current status of the desktop device.</li>
+        <li><span class="font-bold">Update the property of a device resource:</span>Modifies the settings of the desktop device, such as
+          muting the handset.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-3">
+    <% @devices.each do |device| %>
+      <%= link_to device.name, device, class: "text-lg hover:text-gray-500"%>
+    <% end %>
+  </div>
+</div>

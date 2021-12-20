@@ -1,7 +1,6 @@
 class CtiApiController < ApplicationController
   include CtiApiHelper
-  before_action :cti_token_filter, only: :call
-  before_action -> { set_params_and_token 'cti' }, only: :call
+  before_action :cti_token_filter, -> { set_params_and_token 'cti' }, only: :call
 
   def index
     @cti = CtiMonitorApi.all

@@ -1,0 +1,17 @@
+<%= simple_form_for :api, url: device_call_path do |f| %>
+  <%= f.input :ip %>
+  <% if @device.query_params? %>
+    <% @device.query_params.each do |param| %>
+      <%= f.input param.to_sym %>
+    <% end %>
+  <% end %>
+  <% if @device.xml_params? %>
+    <%= f.hidden_field :xml, :value => true  %>
+    <% @device.xml_params.each do |param| %>
+      <%= f.input param.to_sym %>
+    <% end %>
+  <% end %>
+  <%= f.hidden_field :method, :value => @device.method %>
+  <%= f.hidden_field :endpoint, :value => @device.endpoint %>
+  <%= f.button :submit, "Make Request" %>
+<% end %>

@@ -1,7 +1,6 @@
 class DataApiController < ApplicationController
-  before_action :data_token_filter, only: :call
-  before_action -> {set_params_and_token 'data'}, only: :call
   include DataApiRequestHelper
+  before_action :data_token_filter, -> { set_params_and_token 'data' }, only: :call
 
   def show
     @data_api = DataApi.find(params[:id])
