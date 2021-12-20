@@ -1,11 +1,6 @@
 module CallApiReqHelper
   include RequestHelper
 
-  # takes call name and turns it into method name to be sent
-  def to_method(call_name)
-    call_name.downcase.split.join '_'
-  end
-
   # Sets privacy & recording options to false if they are left blank
   def set_privacy_and_recording(params)
     %w[RecordingOption PrivacyOption].each do |option|

@@ -1,6 +1,6 @@
 class CallApiController < ApplicationController
   include CallApiReqHelper
-  before_action :cti_token_filter, :set_method, -> {set_params_and_token 'cti' }, only: :call
+  before_action :cti_token_filter, -> {set_params_and_token 'cti' }, only: :call
 
   def index
     @calls = CallApi.all
@@ -12,6 +12,7 @@ class CallApiController < ApplicationController
 
   def call
     @resp = if params[:api][:xml]
+              set_method
               send @method_name, @params, @token
             else
               plain_req(@params, @token)
@@ -22,8 +23,7 @@ class CallApiController < ApplicationController
   private
 
   def set_method
-    @call = CallApi.find(params[:api][:call_id])
-    @method_name = to_method @call.name
+    @method_name = CallApi.find(params[:api][:call_id])/to_method
   end
 
 end
