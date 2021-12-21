@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_16_192055) do
+ActiveRecord::Schema.define(version: 2021_12_21_164157) do
 
   create_table "call_apis", force: :cascade do |t|
     t.string "name"
@@ -56,6 +56,17 @@ ActiveRecord::Schema.define(version: 2021_12_16_192055) do
     t.string "method"
     t.string "queryparameters"
     t.string "xmlparameters"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "monitoring_apis", force: :cascade do |t|
+    t.string "name"
+    t.string "endpoint"
+    t.string "method"
+    t.string "queryparameters"
+    t.json "querystrparameters"
+    t.string "guidelines"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

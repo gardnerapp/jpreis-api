@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  endpoint: MyString
+  method: MyString
+  queryparameters: MyString
+  querystrparameters: MyString
+  guidelines: MyString
+  querystrdetails: 
+
+two:
+  name: MyString
+  endpoint: MyString
+  method: MyString
+  queryparameters: MyString
+  querystrparameters: MyString
+  guidelines: MyString
+  querystrdetails: 
