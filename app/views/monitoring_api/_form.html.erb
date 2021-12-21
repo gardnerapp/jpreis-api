@@ -1,0 +1,15 @@
+<%= simple_form_for :api, url: monitoring_call_path do |f| %>
+  <%= f.input :ip %>
+  <% @monitoring.queryparameters.each do |k,v| %>
+    <p class="text-lg m-1"><%= v %></p>
+    <%= f.input k.to_sym %>
+  <% end %>
+  <%= f.simple_fields_for :query do |y| %>
+    <p class="text-lg m-1">Please enter your query string parameters</p>
+  <% @monitoring.querystrparameters.each do |k,v| %>
+       <p class="text-lg m-1"><%= v %></p>
+        <%= y.input k.to_sym %>
+  <% end %>
+    <% end  %>
+  <%= f.button :submit, "Make Request" %>
+<% end %>

@@ -1,10 +1,22 @@
 MonitoringApi.create(
   name: 'Fetch VoIP quality information',
-  endpoint: '/svc/bw/monitoring/voip-quality?',
-  method: 'get',
   guidelines: 'Fetch VoIP quality call detail records (VQ-CDR) for a device from the Unigy database. The response
 returns this information in a paginated format.',
-  queryparameters: 'querystr={logicalexpression} &numrecsperpage={number} &pagenum={number} &timezone={timezone}',
+  queryparameters: {
+    'numrecsperpage': 'The number of records to be returned per page. If absent, the maximum number of records is returned. Valid values are: 1 to 300',
+    'pagenum': 'The specific page number of the paginated data to
+be returned. If absent, the first page is returned.
+Valid values are:
+1 to n',
+    'timezone': "
+    Time zone of the time values in the returned data, this value is required.
+Valid values are:
+EST, IST, MIT, HST, AST, PST, MST, PNT, CST,
+IET, PRT, AGT, BET, GMT, UCT, CET, ART, CAT,
+EAT, NET, PLT, BST, VST, CTT, JST, ACT, AET,
+NST, HAST, AKST, PDT, CDT, CNT, WET, WEST,
+CEST, EET, MET, ICT, AWST, ACST, AEST, SST,
+NZST, EDT", },
   querystrparameters: { # Key == query str name, value == query str description
     'instanceId': 'Unique identifier for the instance. When specified, fetches all VoIP quality records for all zones in
 the instance. The instance, zone, and device identifiers in this table do not

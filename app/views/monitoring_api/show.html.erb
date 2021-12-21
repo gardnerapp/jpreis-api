@@ -1,0 +1,9 @@
+<div>
+  <%= render 'api_sessions/session_nav' %>
+  <h1 class="text-xl"><%= @monitoring.name %></h1>
+  <h2 class="text-lg"><%= @monitoring.endpoint %></h2>
+  <br/>
+  <p class="text-lg"><%= @monitoring.guidelines %></p>
+  <br/>
+  <%= render 'monitoring_api/form' %>
+</div>
