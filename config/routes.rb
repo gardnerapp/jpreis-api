@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   # TODO add dropdown burger to full navbar do large font
   # TODO add all controllers  to navbar
   # todo remove home from nav, link something to jpreis image logo
+  # todo review data api add necessary documentation
   # TODO go through todos
 
 end
