@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'monitoring_api/show'
   root to: 'data_api#index'
 
   # Authorization Endpoints
@@ -32,13 +31,19 @@ Rails.application.routes.draw do
   resources :monitoring_api, only: :show
   post '/monitoring/call', to: 'monitoring_api#call'
 
+  resources :management_api, only: %i[show index]
+  post '/management/call', to: 'management_api#call'
 
-  #  Monitoring, User ACCT MNGMENT
+
+
+
+  #  User ACCT MNGMENT
   #
   # TODO add dropdown burger to full navbar do large font
-  # TODO add all controllers  to navbar
+  # TODO add all types of calls to navbar
   # todo remove home from nav, link something to jpreis image logo
   # todo review data api add necessary documentation
   # TODO go through todos
+  # make sure cotnroller callback tokens are rpoper
 
 end

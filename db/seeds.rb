@@ -1,3 +1,105 @@
+ManagementApi.create([
+                       # ADMIN ACCT MNGMNT CALLS
+                       {
+                         name: 'Fetch hash of administrative account password',
+                         endpoint: '/svc/bw/acctmgmt/admin/password?querystr=',
+                         method: 'get',
+                         xmlparameters: nil,
+                         # TODO add reauthentication note to form
+                         queryparameters: 'userName password userId loginName',
+                         admin: true
+                       },
+                       {
+                         name: 'Change administrative account password',
+                         endpoint: '/svc/bw/acctmgmt/admin/password',
+                         method: 'put',
+                         # ToDO add re-auth note and that xml data is for user
+                         xmlparameters: 'LoginName NewPassword CurrentPassword PasswordChangeMode',
+                         queryparameters: 'userName password',
+                         admin: true
+                       },
+
+                       # END USER ACTT MNGMNT CALLS
+                       {
+                         name: 'Create an end user account',
+                         endpoint: '/svc/bw/acctmgmt/user',
+                         method: 'post',
+                         xmlparameters: 'LoginName Password PasswordChangeMode DateDisplayFormat TimeDisplayFormat
+                          IsTemporary AuthType FirstName LastName Locale Email LocationId AccountPolicyId',
+                         queryparameters: nil
+                       },
+                       {
+                         name: 'Assign roles or remove a role assignment',
+                         endpoint: '/svc/bw/acctmgmt/user/role-list?operation=',
+                         method: 'put',
+                         # TODO provide instructions in form
+                         xmlparameters: 'LoginName RoleNames',
+                         queryparameters: 'operation'
+                       },
+                       {
+                         name: 'Add or remove an end user from an end user group',
+                         endpoint: '/svc/bw/acctmgmt/user/group-membership?operation=',
+                         method: 'put',
+                         xmlparameters: 'UserId GroupId',
+                         queryparameters: 'operation'
+                       },
+                       {
+                         name: 'Assign or revoke a license',
+                         endpoint: '/svc/bw/acctmgmt/user/license?operation=',
+                         method: 'put',
+                         xmlparameters: 'UserId LicenseFeatureCode',
+                         queryparameters: 'operation'
+                       },
+                       {
+                         name: 'Add point of contact for an end user',
+                         endpoint: '/svc/bw/acctmgmt/user/point-of-contact?operation=',
+                         method: 'put',
+                         xmlparameters: 'UserId ButtonLabel MediaType POCType Data PreferredPOC',
+                         queryparameters: 'operation'
+                       },
+                       {
+                         name: 'Change end user account password',
+                         endpoint: '/svc/bw/acctmgmt/user/password',
+                         method: 'put',
+                         xmlparameters: 'LoginName NewPassword PasswordChangeMode',
+                         queryparameters: nil
+                       },
+                       {
+                         name: 'Update end user attributes',
+                         endpoint: '/svc/bw/acctmgmt/user',
+                         method: 'put',
+                         xmlparameters: 'UserId FirstName LastName',
+                         queryparameters: nil
+                       },
+                       {
+                         name: 'Update end user trader features',
+                         endpoint: '/svc/bw/acctmgmt/user/trader-features',
+                         method: 'put',
+                         # TODO ALOT OF XML PARAMS FIGURE OUT HOW TO HANDLE THIS
+                         xmlparameters: 'LoginName PersonalExtension IntercomExtension HuntGroupId UnigyLocationId
+                          BillingGroupId AutoSelectHold Language',
+                         queryparameters: nil
+                       },
+                       {
+                         name: 'Force log out',
+                         endpoint: '/svc/bw/acctmgmt/user/cdi-session?operation=force-logout',
+                         method: 'put',
+                         xmlparameters: 'UserId IgnoreOpenHandSetCalls',
+                         queryparameters: nil
+                       },
+                       {
+                         name: 'Update end user button settings',
+                         endpoint: '/svc/bw/acctmgmt/user/button',
+                         method: 'put',
+                         xmlparameters: 'UserId ButtonId ButtonType ButtonLabel LockedForProgrammingAtCDI
+                          IncomingActionRings IncomingActionPriority IncomingActionFloat DisplayIncomingCLI RingTone
+                          DisplayInCallHistory ResourceAORId LineAppearance SpeedDialType AutoSignal',
+                         queryparameters: nil
+                       },
+
+                     ])
+
+
 MonitoringApi.create(
   name: 'Fetch VoIP quality information',
   guidelines: 'Fetch VoIP quality call detail records (VQ-CDR) for a device from the Unigy database. The response

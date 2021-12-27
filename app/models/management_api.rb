@@ -1,0 +1,2 @@
+class ManagementApi < ApplicationRecord
+end
