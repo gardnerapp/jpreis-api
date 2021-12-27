@@ -57,8 +57,7 @@ less than or equal to this value.',
     'remoteAddr': 'IP address of the remote endpoint.',
     'remoteID': 'Identifier of the remote endpoint'
   }
-
-  )
+)
 DataStatusMonitorApi.create( [
                               {
                                 name: 'Create data status monitor resource',

@@ -1,11 +1,30 @@
 module MonitoringReqHelper
   include RequestHelper
 
-  # {"authenticity_token"=>"[FILTERED]", "api"=>{"ip"=>"", "numrecsperpage"=>"", "pagenum"=>"", "timezone"=>"", "query"=>{"instanceId"=>"", "instanceName"=>"", "zoneId"=>"", "zoneName"=>"", "deviceId"=>"", "deviceUUID"=>"", "deviceRole"=>"", "startTime"=>"", "endTime"=>"", "alertSeverity"=>"", "callID"=>"", "connectionID"=>"", "enterpriseCallID"=>"", "localID"=>"", "localIPAddress"=>"", "origID"=>"", "remoteAddr"=>"", "remoteID"=>""}, "method"=>"get", "endpoint"=>"/svc/bw/monitoring/voip-quality?"}, "commit"=>"Make Request"}
-  # setup req get query params in correct spot, loop over other params add &parm=value
+  # TODO could replace passing in method vars and just use class instance variables
   def make_req(params, token)
-    endpoint = '/svc/bw/monitoring/voip-quality?'
-    # method is get
+    @url = "https://#{params[:ip]}/svc/bw/monitoring/voip-quality?"
+    params.delete[:ip]
 
+    query = params[:query].compact
+    if query != {}
+      @url.concat 'querystr='
+      query.each { |k, v| @url.concat("#{k}=\"#{v}\"") }
+    end
+    params.delete[:query]
+
+    query_params = params.compact
+    query_params.each { |k, v| @url.concat "&#{k}=#{v}" }
+
+    header_token token
+    Faraday.get(@url, nil, @headers)
+  end
+
+  # TODO youtube video on monkey patching hash compact method
+  class Hash
+    # removes keys that contain empty & nil values
+    def compact
+      reject { |k, v| k if v.empty? || v.nil? }
+    end
   end
 end
