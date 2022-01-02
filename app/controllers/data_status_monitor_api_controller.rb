@@ -26,4 +26,7 @@ class DataStatusMonitorApiController < ApplicationController
     @method_name = DataStatusMonitorApi.find(params[:api][:id]).to_method
   end
 
+
+  # Redo this too much
+
 end

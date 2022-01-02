@@ -96,7 +96,6 @@ ManagementApi.create([
                           DisplayInCallHistory ResourceAORId LineAppearance SpeedDialType AutoSignal',
                          queryparameters: nil
                        },
-
                      ])
 
 

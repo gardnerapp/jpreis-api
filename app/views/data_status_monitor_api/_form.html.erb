@@ -1,4 +1,4 @@
-<%= simple_form_for :api, url: data_status_monitor_api_path do |f| %>
+<%= simple_form_for :api, url: data_status_monitor_path do |f| %>
   <%= f.input :ip %>
   <% if @data.query_params? %>
     <% @data.query_params.each do |param| %>

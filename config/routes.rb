@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   post '/device/call', to: 'device_api#call'
 
   resources :data_status_monitor_api, only: %i[show index]
-  post '/data_status/call', to: 'data_status_monitor_api#call'
+  post '/data_status_monitor', to: 'data_status_monitor_api#call'
 
   resources :monitoring_api, only: :show
   post '/monitoring/call', to: 'monitoring_api#call'
@@ -35,7 +35,14 @@ Rails.application.routes.draw do
   post '/management/call', to: 'management_api#call'
 
 
-
+  # Ask about Ip changing
+  # can debug params be placed in Production/Staging environemtn
+  # TOOD look into staging rails applications
+  #
+  # TODO HIGHEST PRIORITY BELOW
+  # Take xml, method, endpoint out of data status monitor form
+  # find the corrct call and then determine these values
+  # DOTHIS FORM ALL MODELS
 
   #  User ACCT MNGMENT
   #

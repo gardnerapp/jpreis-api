@@ -1,4 +1,20 @@
-<div>
-  <h1 class="text-xl font-bold">ManagementApi#index</h1>
-  <p>Find me in app/views/management_api/index.html.erb</p>
-<div>
+<div class="container mx-auto">
+  <h1 class="text-2xl text-center">Account Management API</h1>
+  <%= render "api_sessions/session_nav" %>
+  <div class="my-4">
+    <h2 class="text-xl">Use the Management API to manage different types of users in Unigy.</h2>
+    <div class="my-2">
+      <h2 class="text-xl">The Management API consists of the following:</h2>
+      <ul class="text-xl list-disc m-2">
+        <li>Admin Account Management API – use to manage administrative user accounts.</li>
+        <li>End User Account Management API – use to create and configure end user accounts.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-3 p-2">
+    <% @managements.each do |call| %>
+      <%= link_to call.name, call, class: "text-lg hover:text-gray-500" %>
+    <% end %>
+  </div>
+</div>

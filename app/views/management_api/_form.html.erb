@@ -1,0 +1,20 @@
+<%= simple_form_for :api, url: management_call_path do |f| %>
+  <%= f.input :ip %>
+  <% if @management.admin %>
+    <h2 class="text-xl">
+      For security purposes please re-authenticate your credentials below
+    </h2>
+    <%= f.input :username %>
+    <%= f.input :password %>
+    <% end %>
+  <% if @management.query_params? %>
+    <% @management.query_params.each do |param| %>
+      <%= f.input param.to_sym %>
+    <% end %>
+  <% end %>
+  <% if @management.xml_params? %>
+    <% @management.xml_params.each do |param| %>
+      <%= f.input param.to_sym %>
+    <% end %>
+  <% end %>
+<% end %>
