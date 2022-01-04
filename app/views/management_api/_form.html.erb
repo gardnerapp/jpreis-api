@@ -17,4 +17,5 @@
       <%= f.input param.to_sym %>
     <% end %>
   <% end %>
+  <%= f.hidden_field :id, :value => @management.id %>
 <% end %>

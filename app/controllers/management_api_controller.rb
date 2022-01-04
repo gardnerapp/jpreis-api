@@ -1,9 +1,5 @@
 class ManagementApiController < ApplicationController
-
-  before_action :adminacctmgmt_token_filter, -> { set_params_and_token('adminacctmgmt') }
-  before_action :enduseracctmgmt_token_filter, -> {set_params_and_token('enduseracctmgmt') }
-
-  # TODO add admin vs end_user clause callbacks
+  before_action :set_mngmnt, only: :call
 
   def index
     @managements = ManagementApi.all
@@ -14,6 +10,21 @@ class ManagementApiController < ApplicationController
     @management = ManagementApi.find(params[:id])
   end
 
-  def call; end
+  def call
+
+  end
+
+  private
+
+  def set_mngmnt
+    @management = ManagementApi.find params[:api][:id]
+    if @management.admin
+      adminacctmgmt_token_filter
+      set_params_and_token('adminacctmgmt')
+    else
+      enduseracctmgmt_token_filter
+      set_params_and_token('enduseracctmgmt')
+    end
+  end
 
 end

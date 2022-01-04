@@ -43,6 +43,11 @@ Rails.application.routes.draw do
   # Take xml, method, endpoint out of data status monitor form
   # find the corrct call and then determine these values
   # DOTHIS FORM ALL MODELS
+  #
+  # Look into rails tutorial -> style bottom of page with debugging information so it can be screen shotted and
+  # sent to me, should inlcude params and results
+  #
+  # todo write test 4 filters
 
   #  User ACCT MNGMENT
   #
