@@ -5,17 +5,15 @@ ManagementApi.create([
                          endpoint: '/svc/bw/acctmgmt/admin/password?querystr=',
                          method: 'get',
                          xmlparameters: nil,
-                         # TODO add reauthentication note to form
-                         queryparameters: 'userName password userId loginName',
+                         queryparameters: 'loginName',
                          admin: true
                        },
                        {
                          name: 'Change administrative account password',
                          endpoint: '/svc/bw/acctmgmt/admin/password',
                          method: 'put',
-                         # ToDO add re-auth note and that xml data is for user
-                         xmlparameters: 'LoginName NewPassword CurrentPassword PasswordChangeMode',
-                         queryparameters: 'userName password',
+                         xmlparameters: 'LoginName NewPassword CurrentPassword',
+                         queryparameters: nil,
                          admin: true
                        },
 

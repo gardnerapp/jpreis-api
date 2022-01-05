@@ -10,6 +10,13 @@ module RequestHelper
     @headers['X-IPCAuthToken'] = token
   end
 
+  # Adds basic authorization to @headers
+  def basic_auth(username, password)
+    str = "#{username}:#{password}"
+    encoded = Base64.encode64(str)
+    @headers['Authorization'] = "Basic: #{encoded}"
+  end
+
   # creates instance variables required for send_req
   def create_req_args(params, body, token)
     @method = params[:method]

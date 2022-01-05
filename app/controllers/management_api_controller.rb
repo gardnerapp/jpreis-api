@@ -1,4 +1,5 @@
 class ManagementApiController < ApplicationController
+  include ManagementApiReqHelper
   before_action :set_mngmnt, only: :call
 
   def index
@@ -11,7 +12,8 @@ class ManagementApiController < ApplicationController
   end
 
   def call
-
+    @resp = @management.admin ? admin_req(@params , @token) : nil
+    render 'calls/resp'
   end
 
   private
@@ -19,10 +21,10 @@ class ManagementApiController < ApplicationController
   def set_mngmnt
     @management = ManagementApi.find params[:api][:id]
     if @management.admin
-      adminacctmgmt_token_filter
+      # todo uncomment adminacctmgmt_token_filter
       set_params_and_token('adminacctmgmt')
     else
-      enduseracctmgmt_token_filter
+      #  enduseracctmgmt_token_filter
       set_params_and_token('enduseracctmgmt')
     end
   end
