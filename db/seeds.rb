@@ -22,60 +22,64 @@ ManagementApi.create([
                          name: 'Create an end user account',
                          endpoint: '/svc/bw/acctmgmt/user',
                          method: 'post',
-                         xmlparameters: 'LoginName Password PasswordChangeMode DateDisplayFormat TimeDisplayFormat
+                         xmlparameters: 'LoginName Password PasswordChangeMode
                           IsTemporary AuthType FirstName LastName Locale Email LocationId AccountPolicyId',
                          queryparameters: nil
                        },
                        {
-                         name: 'Assign roles or remove a role assignment',
+                         name: 'Assign or remove role',
                          endpoint: '/svc/bw/acctmgmt/user/role-list?operation=',
                          method: 'put',
-                         # TODO provide instructions in form
                          xmlparameters: 'LoginName RoleNames',
                          queryparameters: 'operation'
                        },
                        {
-                         name: 'Add or remove an end user from an end user group',
+                         name: 'Add or remove user from group',
                          endpoint: '/svc/bw/acctmgmt/user/group-membership?operation=',
                          method: 'put',
                          xmlparameters: 'UserId GroupId',
                          queryparameters: 'operation'
                        },
                        {
-                         name: 'Assign or revoke a license',
+                         name: 'Assign or revoke license',
                          endpoint: '/svc/bw/acctmgmt/user/license?operation=',
                          method: 'put',
                          xmlparameters: 'UserId LicenseFeatureCode',
                          queryparameters: 'operation'
                        },
                        {
-                         name: 'Add point of contact for an end user',
+                         name: 'Add point of contact for user',
                          endpoint: '/svc/bw/acctmgmt/user/point-of-contact?operation=',
                          method: 'put',
                          xmlparameters: 'UserId ButtonLabel MediaType POCType Data PreferredPOC',
                          queryparameters: 'operation'
                        },
                        {
-                         name: 'Change end user account password',
+                         name: 'Change user account password',
                          endpoint: '/svc/bw/acctmgmt/user/password',
                          method: 'put',
                          xmlparameters: 'LoginName NewPassword PasswordChangeMode',
                          queryparameters: nil
                        },
                        {
-                         name: 'Update end user attributes',
+                         name: 'Update user attributes',
                          endpoint: '/svc/bw/acctmgmt/user',
                          method: 'put',
                          xmlparameters: 'UserId FirstName LastName',
                          queryparameters: nil
                        },
                        {
-                         name: 'Update end user trader features',
+                         name: 'Update user trader features',
                          endpoint: '/svc/bw/acctmgmt/user/trader-features',
                          method: 'put',
-                         # TODO ALOT OF XML PARAMS FIGURE OUT HOW TO HANDLE THIS
                          xmlparameters: 'LoginName PersonalExtension IntercomExtension HuntGroupId UnigyLocationId
-                          BillingGroupId AutoSelectHold Language',
+                          BillingGroupId AutoSelectHold Language AllowPrivacyToggle AlternateHandsetSelectTimeout
+BlockingToneOnSpeakerMute CLIDisplayPreference CodecProfileId CreateSimplexPresetBroadcast Custom1 Custom2 Custom3 Custom4
+DeskLocation DivertICMCallsTo DurForICMRNADiversion FixedButtonRows FloatAllIncomingCalls FloatCallsOnHold FloatingButtonRows
+FloatPriorityProfileId ForceTalkbackMute HandsetButtonActions HandsetCallMuteOption HandsetSelectMode HomeZoneId ICMDiversionCondition
+ICMDiversionMode ICMRecording ICMSplashTone ImplicitHunt InfiniteRing InterDigitTimeout IntrusionTone LatchGroupTalkback1
+LatchGroupTalkback2 MaintainICMDivertUponLogOn MaxDigitForTheDivertToNumber MusicOnHoldId RecordOnDemand RecordWarningTone SpeakerMicMuteOption
+SpeakerRetryTime UserPrivacyDefaultsToEnabled',
                          queryparameters: nil
                        },
                        {
@@ -86,7 +90,7 @@ ManagementApi.create([
                          queryparameters: nil
                        },
                        {
-                         name: 'Update end user button settings',
+                         name: 'Update user button settings',
                          endpoint: '/svc/bw/acctmgmt/user/button',
                          method: 'put',
                          xmlparameters: 'UserId ButtonId ButtonType ButtonLabel LockedForProgrammingAtCDI

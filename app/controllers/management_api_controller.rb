@@ -12,7 +12,7 @@ class ManagementApiController < ApplicationController
   end
 
   def call
-    @resp = @management.admin ? admin_req(@params , @token) : nil
+    @resp = @management.admin ? admin_req(@params, @token) : send(@method_name)
     render 'calls/resp'
   end
 
@@ -20,6 +20,9 @@ class ManagementApiController < ApplicationController
 
   def set_mngmnt
     @management = ManagementApi.find params[:api][:id]
+    @method_name = @management.to_method
+    @endpoint = @management.endpoint
+    @method = @management.method
     if @management.admin
       # todo uncomment adminacctmgmt_token_filter
       set_params_and_token('adminacctmgmt')
