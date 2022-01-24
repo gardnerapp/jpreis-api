@@ -70,3 +70,5 @@ gem "tailwindcss-rails", "~> 0.5.1"
 gem 'simple_form-tailwind'
 gem 'faraday', '~> 1.8'
 
+gem 'passenger', '~> 5.0', '>= 5.0.30'
+
