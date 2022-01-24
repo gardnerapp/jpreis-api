@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.0.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.0.alpha2"
+gem "rails", "~> 7.0.1"
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
@@ -71,4 +71,5 @@ gem 'simple_form-tailwind'
 gem 'faraday', '~> 1.8'
 
 gem 'passenger', '~> 5.0', '>= 5.0.30'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
