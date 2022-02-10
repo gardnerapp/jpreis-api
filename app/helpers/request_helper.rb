@@ -1,6 +1,6 @@
 module RequestHelper
   require 'faraday'
-  # todo make call/resp render err check class type
+
   HEADERS = { "X-IPCBWAPIVersion": '2.0/1.2',
               "Content-Type": 'application/xml'}
 

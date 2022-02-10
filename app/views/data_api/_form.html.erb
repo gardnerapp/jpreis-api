@@ -1,6 +1,6 @@
 <div class="pt-2 mt-2">
   <%= simple_form_for :api, url: data_call_path do |f| %>
-    <%= f.input :ip %>
+    <%= f.input :ip, collection: ::ControllerHelper::IP_ADDRESSES, selected: '127.0.0.1' %>
     <% @data_api.params.each do |param| %>
       <%= f.input param.to_sym %>
     <% end %>
