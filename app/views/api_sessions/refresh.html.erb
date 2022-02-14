@@ -3,6 +3,7 @@
   <p>Please select the type of session you are refreshing</p>
   <%= simple_form_for :login, url: sessions_refresh_path do |f| %>
     <%= f.input :ip,  collection: ::ControllerHelper::IP_ADDRESSES, selected: '127.0.0.1' %>
+    <%= f.input :password %>
     <%= f.input :session_type, as: :select, collection: %w[DATA CTI MONITORING ADMINACCTMGMT ENDUSERACCTMGMT],
     selected: 'DATA' %>
     <%= f.button :submit, "Login" %>

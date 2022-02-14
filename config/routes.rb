@@ -34,6 +34,10 @@ Rails.application.routes.draw do
   resources :management_api, only: %i[show index]
   post '/management/call', to: 'management_api#call'
 
+  # Removing password from cookies
+  # add password to form update, destroy
+  # in controller get password from params
+
   # todo write test 4 filters
 
   # todo add timezone drop down on form
