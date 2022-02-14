@@ -34,28 +34,8 @@ Rails.application.routes.draw do
   resources :management_api, only: %i[show index]
   post '/management/call', to: 'management_api#call'
 
-
-  # Ask about Ip changing
-  # can debug params be placed in Production/Staging environemtn
-  # TOOD look into staging rails applications
-  #
-  # TODO HIGHEST PRIORITY BELOW
-  # Take xml, method, endpoint out of data status monitor form
-  # find the corrct call and then determine these values
-  # DOTHIS FORM ALL MODELS
-  #
-  # Look into rails tutorial -> style bottom of page with debugging information so it can be screen shotted and
-  # sent to me, should inlcude params and results
-  #
   # todo write test 4 filters
 
-  #  User ACCT MNGMENT
-  #
-  # TODO add dropdown burger to full navbar do large font
-  # TODO add all types of calls to navbar
-  # todo remove home from nav, link something to jpreis image logo
-  # todo review data api add necessary documentation
-  # TODO go through todos
-  # make sure cotnroller callback tokens are rpoper
-
+  # todo add timezone drop down on form
+  # ask matt number of hours for start and end time, in regular or unix time
 end

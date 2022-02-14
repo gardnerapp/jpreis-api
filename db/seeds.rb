@@ -360,7 +360,7 @@ DataApi.create([{
 &timezone={timezone} &timeformat={timeformat}
 &pagenum={pagenum} &numrecsperpage={numrecsperpage}
 &deviceid={deviceid} &eventtype={eventtype}"
-               },
+                },
                 {
                   name: 'Fetch User Information',
                   endpoint: '/svc/bw/data/user?',

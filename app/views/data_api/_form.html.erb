@@ -2,7 +2,15 @@
   <%= simple_form_for :api, url: data_call_path do |f| %>
     <%= f.input :ip, collection: ::ControllerHelper::IP_ADDRESSES, selected: '127.0.0.1' %>
     <% @data_api.params.each do |param| %>
-      <%= f.input param.to_sym %>
+      <% if param == '&timezone=' %>
+        <%= f.input param.to_sym, collection: ::ControllerHelper::TIMEZONES, selected: 'EST' %>
+      <% elsif param == '&timeformat=' %>
+        <%= f.input param.to_sym, input_html: { value: 'absolute' } %>
+      <% elsif param == '&loginname=' %>
+        <%= f.input param.to_sym, input_html: { value: 'example login name' } %>
+      <% else %>
+        <%= f.input param.to_sym %>
+      <% end %>
     <% end %>
     <%= f.hidden_field :endpoint, :value => @data_api.endpoint %>
     <%= f.button :submit, "Make Request" %>
