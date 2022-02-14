@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
   root to: 'data_api#index'
+
+  get '/request', to: 'request#set'
 
   # Authorization Endpoints
   get '/sessions/new', to: 'api_sessions#new'
@@ -34,14 +37,15 @@ Rails.application.routes.draw do
   resources :management_api, only: %i[show index]
   post '/management/call', to: 'management_api#call'
 
-  # Removing password from cookies
-  # add password to form update, destroy
-  # in controller get password from params
-
   # todo write test 4 filters
+  # todo create page to show request parameters
+  # helpers build request params, send request in another func
+  # button to and from
+  # add API Docs
+  # Get screen shots place them in form, for display ask about storage of photos
 
   # todo add timezone drop down on form
-  # todo commands to automatically rotate cookies in Docker file
+  # todo commands to automatically rotate cookies key in Docker file
   # ask matt number of hours for start and end time, in regular or unix time
   #
   # Adding docs -> show table, upload screenshots
@@ -49,6 +53,7 @@ Rails.application.routes.draw do
   #
   # Display query params before call -> make new page,
   #
-  #
   # Questions for team -> what default values on what calls, default IP addresses
+  #
+  # todo write guid readme
 end
