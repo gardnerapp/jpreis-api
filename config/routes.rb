@@ -37,5 +37,14 @@ Rails.application.routes.draw do
   # todo write test 4 filters
 
   # todo add timezone drop down on form
+  # todo commands to automatically rotate cookies in Docker file
   # ask matt number of hours for start and end time, in regular or unix time
+  #
+  # Adding docs -> show table, upload screenshots
+  # or just raw table data
+  #
+  # Display query params before call -> make new page,
+  #
+  #
+  # Questions for team -> what default values on what calls, default IP addresses
 end

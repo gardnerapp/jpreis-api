@@ -39,9 +39,9 @@ class ApiSessionsController < ApplicationController
 
     if res.code == 200
       @auth_token = body.at_xpath('//ns1:AuthenticationToken').content
-      cookies.encrypted[:username] = { value: login_params[:username], expires: 30.minutes.from_now }
+      cookies.encrypted[:username] = { value: login_params[:username], expires: 90.minutes.from_now }
       cookies.encrypted[:password] = { value: login_params[:password], expires: 30.minutes.from_now }
-      cookies.encrypted["#{type}_token"] = { value: @auth_token, expires: 25.minutes.from_now }
+      cookies.encrypted["#{type}_token"] = { value: @auth_token, expires: 90.minutes.from_now }
       flash[:notice] = @auth_token.to_s
     else
       flash[:danger] = "Response Code #{res.code}"
@@ -58,7 +58,7 @@ class ApiSessionsController < ApplicationController
     if @resp.status == 200
       body = @resp.body
       @auth_token = body.at_xpath('//ns1:AuthenticationToken').content
-      cookies.encrypted["#{params[:login][:session_type].downcase}_token"] = { value: @auth_token, expires: 95.minutes.from_now }
+      cookies.encrypted["#{params[:login][:session_type].downcase}_token"] = { value: @auth_token, expires: 90.minutes.from_now }
     end
     render 'calls/resp'
   end
@@ -67,7 +67,7 @@ class ApiSessionsController < ApplicationController
   end
 
   # terminates session
-  def destroy #TODO configure complete clear of sessions
+  def destroy
     @token = "#{params[:login][:session_type]}_token"
     @resp = delete_session(params[:login][:ip], cookies[@token], cookies[:username], cookies[:password])
     [@token, 'username', 'password'].each { |c| cookies.delete(c) }

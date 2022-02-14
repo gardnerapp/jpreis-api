@@ -7,7 +7,7 @@
       <% elsif param == '&timeformat=' %>
         <%= f.input param.to_sym, input_html: { value: 'absolute' } %>
       <% elsif param == '&loginname=' %>
-        <%= f.input param.to_sym, input_html: { value: 'example login name' } %>
+        <%= f.input param.to_sym, input_html: { value: 'example_username' } %>
       <% else %>
         <%= f.input param.to_sym %>
       <% end %>

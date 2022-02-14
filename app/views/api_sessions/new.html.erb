@@ -1,11 +1,13 @@
 <div class="h-full w-full max-w-xs mx-auto align-middle">
   <h2>Create API Session</h2>
+  <h3>Session Tokens Invalidate After 90 Minutes </h3>
 
   <%= simple_form_for :login, url: sessions_path do |f| %>
-    <%= f.input :ip %>
-    <%= f.input :username %>
+    <%= f.input :ip, collection: ::ControllerHelper::IP_ADDRESSES, selected: '127.0.0.1' %>
+    <%= f.input :username, input_html: { value: 'example_username' } %>
     <%= f.input :password %>
-    <%= f.input :session_type, as: :select, collection: %w[DATA CTI MONITORING ADMINACCTMGMT ENDUSERACCTMGMT] %>
+    <%= f.input :session_type, as: :select, collection: %w[DATA CTI MONITORING ADMINACCTMGMT ENDUSERACCTMGMT],
+                selected: 'DATA' %>
     <%= f.button :submit, "Login" %>
     <%= f.input :auth_token, input_html: {value: flash[:notice]} %>
   <% end  %>
