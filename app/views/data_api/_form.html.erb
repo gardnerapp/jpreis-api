@@ -1,5 +1,5 @@
 <div class="pt-2 mt-2">
-  <%= simple_form_for :api, url: data_call_path do |f| %>
+  <%= simple_form_for :api, url: data_path, method: :post do |f| %>
     <%= f.input :ip, collection: ::ControllerHelper::IP_ADDRESSES, selected: '127.0.0.1' %>
     <% @data_api.params.each do |param| %>
       <% if param == '&timezone=' %>
@@ -13,6 +13,6 @@
       <% end %>
     <% end %>
     <%= f.hidden_field :endpoint, :value => @data_api.endpoint %>
-    <%= f.button :submit, "Make Request" %>
+    <%= f.button :submit, "Prepare Request" %>
   <% end %>
 </div>

@@ -19,7 +19,7 @@ module RequestHelper
 
   # creates instance variables required for send_req
   def create_req_args(params, body, token)
-    @method = params[:method]
+    @method ||= params[:method]
     @url = "https://#{params[:ip]}#{params[:endpoint]}"
     add_query_params(params)
     @body ||= body

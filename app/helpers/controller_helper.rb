@@ -3,7 +3,17 @@ module ControllerHelper
   # creates hash from POST request and sets token
   def set_params_and_token(token_type)
     @params = params[:api].to_unsafe_h
+    cookies["#{token_type}_token"] = 'foo' if Rails.env.development? #todo delete before pushing
+    cookies["#{token_type}_token"]
     @token = cookies["#{token_type}_token"]
+  end
+
+  # gets list of active tokens
+  def active_tokens
+    @active_tokens = %i[DATA CTI MONITORING] #todo get expire time
+    %w[DATA CTI MONITORING ADMINACCTMGMT ENDUSERACCTMGMT].map(&:downcase).each do |token|
+      @active_tokens << "#{token}" if cookies["#{token}_token"]
+    end
   end
 
   # Form Ip Addresses
