@@ -1,13 +1,16 @@
-require "test_helper"
+require 'test_helper'
 
 class ManagementApiControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
+  setup do
+    @management = management_apis :one
+  end
+  test 'should get index' do
     get management_api_index_url
     assert_response :success
   end
 
-  test "should get show" do
-    get management_api_show_url
+  test 'should get show' do
+    get management_api_path @management
     assert_response :success
   end
 end

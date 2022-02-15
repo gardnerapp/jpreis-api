@@ -3,8 +3,7 @@ module ControllerHelper
   # creates hash from POST request and sets token
   def set_params_and_token(token_type)
     @params = params[:api].to_unsafe_h
-    cookies["#{token_type}_token"] = 'foo' if Rails.env.development? #todo delete before pushing
-    cookies["#{token_type}_token"]
+    #cookies["#{token_type}_token"] = 'foo' if Rails.env.development? #todo delete before pushing
     @token = cookies["#{token_type}_token"]
   end
 
