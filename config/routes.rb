@@ -36,8 +36,7 @@ Rails.application.routes.draw do
   post '/management/call', to: 'management_api#call'
 
   # todo write test 4 filters
-  # todo create page to show request parameters
-  # helpers build request params, send request in another func
+
   # button to and from
   # add API Docs
   # Get screen shots place them in form, for display ask about storage of photos

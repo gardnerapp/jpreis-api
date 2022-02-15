@@ -13,6 +13,7 @@
       <% end %>
     <% end %>
     <%= f.hidden_field :endpoint, :value => @data_api.endpoint %>
+    <%= f.hidden_field :call_name, :value => @data_api.name %>
     <%= f.button :submit, "Prepare Request" %>
   <% end %>
 </div>
