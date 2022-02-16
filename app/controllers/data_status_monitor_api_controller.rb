@@ -1,6 +1,6 @@
 class DataStatusMonitorApiController < ApplicationController
   include DataStatusMonitorReqHelper
-  before_action :data_token_filter, -> { set_params_and_token 'data' }, only: :call
+  before_action -> { set_params_and_token 'data' }, :data_token_filter,  only: :call
 
   def index
     @data_calls = DataStatusMonitorApi.all
