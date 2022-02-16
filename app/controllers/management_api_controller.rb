@@ -20,16 +20,16 @@ class ManagementApiController < ApplicationController
 
   def set_mngmnt
     @management = ManagementApi.find params[:api][:id]
+    if @management.admin
+      set_params_and_token('adminacctmgmt')
+      adminacctmgmt_token_filter
+    else
+      set_params_and_token('enduseracctmgmt')
+      enduseracctmgmt_token_filter
+    end
     @method_name = @management.to_method
     @endpoint = @management.endpoint
     @method = @management.method
-    if @management.admin
-      # todo uncomment adminacctmgmt_token_filter
-      set_params_and_token('adminacctmgmt')
-    else
-      #  enduseracctmgmt_token_filter
-      set_params_and_token('enduseracctmgmt')
-    end
   end
 
 end

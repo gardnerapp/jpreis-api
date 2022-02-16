@@ -36,8 +36,9 @@ Rails.application.routes.draw do
   post '/management/call', to: 'management_api#call'
 
   # todo write test 4 filters
+  # Fake data for show response page
+  # button to click show response and send/ render request
 
-  # button to and from
   # add API Docs
   # Get screen shots place them in form, for display ask about storage of photos
 
@@ -47,8 +48,6 @@ Rails.application.routes.draw do
   #
   # Adding docs -> show table, upload screenshots
   # or just raw table data
-  #
-  # Display query params before call -> make new page,
   #
   # Questions for team -> what default values on what calls, default IP addresses
   #
