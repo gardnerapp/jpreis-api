@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :data_api, only: %i[show index]
   post '/data', to: 'data_api#prepare'
+  get '/data/request', to: 'data_api#make'
 
   resources :cti_api, only: %i[show index]
   post '/cti/call', to: 'cti_api#call'
@@ -35,9 +36,10 @@ Rails.application.routes.draw do
   resources :management_api, only: %i[show index]
   post '/management/call', to: 'management_api#call'
 
-  # todo write test 4 filters
+  # todo check if acctmngmnt callls need password reauth,
+  # formerly password was stored in cookies but that was removed
+  #
   # Fake data for show response page
-  # button to click show response and send/ render request
 
   # add API Docs
   # Get screen shots place them in form, for display ask about storage of photos
@@ -45,9 +47,6 @@ Rails.application.routes.draw do
   # todo add timezone drop down on form
   # todo commands to automatically rotate cookies key in Docker file
   # ask matt number of hours for start and end time, in regular or unix time
-  #
-  # Adding docs -> show table, upload screenshots
-  # or just raw table data
   #
   # Questions for team -> what default values on what calls, default IP addresses
   #

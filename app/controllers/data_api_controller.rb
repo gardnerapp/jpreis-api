@@ -13,6 +13,8 @@ class DataApiController < ApplicationController
   # prepares request POST /data/
   def prepare
     prep_request @params, @token
+    puts "in prepare"
+    p @body
     render 'request/set'
   end
 

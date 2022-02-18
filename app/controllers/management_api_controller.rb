@@ -12,7 +12,7 @@ class ManagementApiController < ApplicationController
   end
 
   def call
-    @resp = @management.admin ? admin_req(@params, @token) : send(@method_name)
+    @resp = @management.admin ? admin_req : send(@method_name)
     render 'calls/resp'
   end
 
