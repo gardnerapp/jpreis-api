@@ -36,6 +36,11 @@ Rails.application.routes.draw do
   resources :management_api, only: %i[show index]
   post '/management/call', to: 'management_api#call'
 
+  # Figure out what branch you're on
+  # check diff between this and master
+  # request model, response model
+  # 1 -> 1 ratio create demo pages
+
   # todo check if acctmngmnt callls need password reauth,
   # formerly password was stored in cookies but that was removed
   #
