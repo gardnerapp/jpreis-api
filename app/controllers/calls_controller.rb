@@ -1,5 +1,5 @@
 class CallsController < ApplicationController
-  before_action :set_call, only: %i[show]
+  before_action :set_call, :make_call, only: %i[show]
 
   # GET /calls or /calls.json
   def index
@@ -11,13 +11,12 @@ class CallsController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-  def set_call
-    @call = Call.find(params[:id])
+  def make_call
+    @call.send :finalize_req unless @call.req
   end
 
-    # Only allow a list of trusted parameters through.
-  def call_params
-    params.require(:call).permit(:req_body, :req_endpoint, :req_verb, :resp_status, :resp_body)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_call
+    @call = Call.find(params[:id])
   end
 end

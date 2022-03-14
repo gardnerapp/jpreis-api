@@ -9,18 +9,14 @@ class DataApiController < ApplicationController
   def index
     @data_calls = DataApi.all
   end
-
-  # prepares request POST /data/
+  
+  # preps instance vars & shows cli data they are sending
+  # POST /data/
   def prepare
     prep_request @params, @token
-    puts 'in prepare'
-    p @body
-    render 'request/set'
-  end
-
-  def make # see if instance vars from prep hold, render fake response
-    @resp = make_request#(@params, @token)
-    render 'request/send'
+    @call = Call.create(req_endpoint: @url, req_verb: @method.upcase, req_body: @body)
+    @call.headers(@headers)
+    render 'calls/new'
   end
 
 end

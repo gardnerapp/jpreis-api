@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :calls, except: %i[new create edit update destroy]
+  resources :calls, except: %i[new edit update destroy]
+
+  get '/data/save', to: 'data_api#save'
 
   root to: 'data_api#index'
 

@@ -1,12 +1,13 @@
 module RequestHelper
   require 'faraday'
 
-  HEADERS = { "X-IPCBWAPIVersion": '2.0/1.2',
-              "Content-Type": 'application/xml'}
+  HEADERS = {}
 
   # adds authorization token to @headers instance variable
   def header_token(token)
     @headers = HEADERS
+    @headers['X-IPCBWAPIVersion'] = '2.0/1.2'
+    @headers['Content-Type'] = 'application/xml'
     @headers['X-IPCAuthToken'] = token
   end
 
@@ -21,7 +22,7 @@ module RequestHelper
   def create_req_args(params, body, token)
     @method ||= params[:method]
     @url = "https://#{params[:ip]}#{params[:endpoint]}"
-    add_query_params(params)
+    add_query_params(params) if params
     @body ||= body
     header_token(token) if token
   end
@@ -48,8 +49,8 @@ module RequestHelper
   # @body == req body
   # @headers == see above
   def send_req
-    p @method, @url, @body, @headers
-    # @response = Faraday.get 'https://www.google.com'
+    @call.resp_body = @response.body
+    @call.resp_status = @response.status
     Faraday.send @method, @url, @body, @headers
 
     # Ex. @method = "get" Evaluates to

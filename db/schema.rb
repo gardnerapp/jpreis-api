@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_14_123127) do
+ActiveRecord::Schema.define(version: 2022_03_14_153353) do
 
   create_table "call_apis", force: :cascade do |t|
     t.string "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2022_03_14_123127) do
     t.text "resp_body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "req", default: false
   end
 
   create_table "cti_monitor_apis", force: :cascade do |t|
