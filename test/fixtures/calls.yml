@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  req_body: MyString
+  req_endpoint: MyString
+  req_verb: MyString
+  resp_status: MyString
+  resp_body: MyString
+
+two:
+  req_body: MyString
+  req_endpoint: MyString
+  req_verb: MyString
+  resp_status: MyString
+  resp_body: MyString

@@ -1,9 +1,23 @@
 class CallsController < ApplicationController
+  before_action :set_call, only: %i[show]
 
-  def resp; end
+  # GET /calls or /calls.json
+  def index
+    @calls = Call.all
+  end
 
-  # def download
-  #   @file = File.open("API-#{Time.now.strftime('%d/%m/%Y %H:%M')}", 'w') { |f| f.write(@resp) }
-  # end
+  # GET /calls/1 or /calls/1.json
+  def show; end
 
+  private
+
+    # Use callbacks to share common setup or constraints between actions.
+  def set_call
+    @call = Call.find(params[:id])
+  end
+
+    # Only allow a list of trusted parameters through.
+  def call_params
+    params.require(:call).permit(:req_body, :req_endpoint, :req_verb, :resp_status, :resp_body)
+  end
 end

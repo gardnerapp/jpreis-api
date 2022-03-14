@@ -49,8 +49,9 @@ module RequestHelper
   # @headers == see above
   def send_req
     p @method, @url, @body, @headers
-    @response = Faraday.get 'https://www.google.com'
-    # Faraday.send @method, @url, @body, @headers
+    # @response = Faraday.get 'https://www.google.com'
+    Faraday.send @method, @url, @body, @headers
+
     # Ex. @method = "get" Evaluates to
     # Faraday.get(@url, @body, @headers)
   end

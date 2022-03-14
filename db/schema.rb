@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_18_143942) do
+ActiveRecord::Schema.define(version: 2022_03_14_123127) do
 
   create_table "call_apis", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 2022_02_18_143942) do
     t.string "method"
     t.string "queryparameters"
     t.string "xmlparameters"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "calls", force: :cascade do |t|
+    t.string "req_body"
+    t.string "req_endpoint"
+    t.string "req_verb"
+    t.integer "resp_status"
+    t.text "resp_body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -76,15 +86,6 @@ ActiveRecord::Schema.define(version: 2022_02_18_143942) do
     t.json "queryparameters"
     t.json "querystrparameters"
     t.string "guidelines"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "requests", force: :cascade do |t|
-    t.json "params"
-    t.text "body"
-    t.integer "status"
-    t.string "endpoint"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

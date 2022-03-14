@@ -1,0 +1,31 @@
+<div id="<%= dom_id call %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Req body:</strong>
+    <%= call.req_body %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Req endpoint:</strong>
+    <%= call.req_endpoint %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Req verb:</strong>
+    <%= call.req_verb %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Resp status:</strong>
+    <%= call.resp_status %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Resp body:</strong>
+    <%= call.resp_body %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this call", call, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

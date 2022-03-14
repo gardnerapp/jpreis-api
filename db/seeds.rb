@@ -1,3 +1,95 @@
+Call.create(
+  req_endpoint: '192.168.0.1//svc/bw/data/communication-history?filtertype=foo&loginname=example_username&timezone=EST&timeformat=absolute&eventtype=bar',
+  req_body: nil,
+  req_verb: 'GET',
+  resp_status: 202,
+  resp_body: "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?
+><ns1:CommunicationHistoryResponse xmlns:ns1=\"http://www.ipc.com/bw\">
+<ns1:NumPagesAvailable>131</ns1:NumPagesAvailable>
+<ns1:Reason>
+<ns1:ReasonCode>REQ_SUCCESS</ns1:ReasonCode>
+<ns1:ReasonDescription>Fetch Communication History Successful</
+ns1:ReasonDescription>
+</ns1:Reason>
+<ns1:CommunicationHistoryList>
+<ns1:CommunicationHistory>
+<ns1:lastModified>2013-11-12T11:22:44-05:00</ns1:lastModified>
+<ns1:id>33554471</ns1:id>
+<ns1:cLIName>Perf15001frst Perf15001last</ns1:cLIName>
+<ns1:cLINumber>15001</ns1:cLINumber>
+<ns1:buttonNumber>-1</ns1:buttonNumber>
+<ns1:callType>icmgroup</ns1:callType>
+<ns1:callUsage>gtbk</ns1:callUsage>
+<ns1:destination>15002</ns1:destination>
+<ns1:deviceChannel>left</ns1:deviceChannel>
+<ns1:deviceChannelType>Handset</ns1:deviceChannelType>
+<ns1:deviceIdId>33554435</ns1:deviceIdId>
+<ns1:displayInCallHistory>true</ns1:displayInCallHistory>
+<ns1:duration>16</ns1:duration>
+<ns1:e164Destination xsi:nil=\"true\" xmlns:xsi=\"http://www.w3.org/
+  2001/XMLSchema-instance\"/>
+<ns1:eventType>Received</ns1:eventType>
+<ns1:parentUserCDIId>33554559</ns1:parentUserCDIId>
+<ns1:personalPointOfContactId>0</ns1:personalPointOfContactId>
+<ns1:pointOfContactId>0</ns1:pointOfContactId><ns1:priority>none</ns1:priority>
+<ns1:reasonForDisconnect>User Released</ns1:reasonForDisconnect>
+<ns1:resourceAORId>0</ns1:resourceAORId>
+<ns1:rolloverAppearance>0</ns1:rolloverAppearance>
+<ns1:routedDestination>15002@10.205.202.87:5060</
+ns1:routedDestination>
+<ns1:startTime>2013-11-12T11:22:28-05:00</ns1:startTime>
+<ns1:trunkBChannel>-1</ns1:trunkBChannel>
+<ns1:trunkId>0</ns1:trunkId>
+<ns1:userId>33554437</ns1:userId>
+<ns1:pttDuration>0</ns1:pttDuration>
+<ns1:ringTime>1</ns1:ringTime>
+<ns1:enterpriseCallId>Call_19_10.205.238.86_1384273347495</
+ns1:enterpriseCallId>
+<ns1:connectionId>Conn_46_10.205.238.86_1384273347496</
+ns1:connectionId>
+</ns1:CommunicationHistory>
+<ns1:CommunicationHistory>
+<ns1:lastModified>2013-11-12T11:23:05-05:00</ns1:lastModified>
+<ns1:id>33554474</ns1:id>
+<ns1:cLIName>Perf15001frst Perf15001last</ns1:cLIName>
+<ns1:cLINumber>15001</ns1:cLINumber>
+<ns1:buttonNumber>-1</ns1:buttonNumber>
+<ns1:callType>icmgroup</ns1:callType>
+<ns1:callUsage>gtbk</ns1:callUsage>
+<ns1:destination>15002</ns1:destination>
+<ns1:deviceChannel>left</ns1:deviceChannel>
+<ns1:deviceChannelType>Handset</ns1:deviceChannelType>
+<ns1:deviceIdId>33554435</ns1:deviceIdId>
+<ns1:displayInCallHistory>true</ns1:displayInCallHistory>
+<ns1:duration>15</ns1:duration>
+<ns1:e164Destination xsi:nil=\"true\" xmlns:xsi=\"http://www.w3.org/
+  2001/XMLSchema-instance\"/>
+<ns1:eventType>Received</ns1:eventType>
+<ns1:parentUserCDIId>33554559</ns1:parentUserCDIId>
+<ns1:personalPointOfContactId>0</ns1:personalPointOfContactId>
+<ns1:pointOfContactId>0</ns1:pointOfContactId>
+<ns1:priority>none</ns1:priority>
+<ns1:reasonForDisconnect>User Released</ns1:reasonForDisconnect>
+<ns1:resourceAORId>0</ns1:resourceAORId>
+<ns1:rolloverAppearance>0</ns1:rolloverAppearance>
+<ns1:routedDestination>15002@10.205.202.87:5060</
+ns1:routedDestination>
+<ns1:startTime>2013-11-12T11:22:49-05:00</ns1:startTime>
+<ns1:trunkBChannel>-1</ns1:trunkBChannel>
+<ns1:trunkId>0</ns1:trunkId>
+<ns1:userId>33554437</ns1:userId>
+<ns1:pttDuration>0</ns1:pttDuration>
+<ns1:ringTime>1</ns1:ringTime>
+<ns1:enterpriseCallId>Call_20_10.205.238.86_1384273368730</
+ns1:enterpriseCallId>
+<ns1:connectionId>Conn_49_10.205.238.86_1384273368730</
+ns1:connectionId>
+</ns1:CommunicationHistory>
+</ns1:CommunicationHistoryList>
+</ns1:CommunicationHistoryResponse>"
+  
+)
+
 ManagementApi.create([
                        # ADMIN ACCT MNGMNT CALLS
                        {

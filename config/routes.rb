@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :calls, except: %i[new create edit update destroy]
 
   root to: 'data_api#index'
 
@@ -36,24 +37,7 @@ Rails.application.routes.draw do
   resources :management_api, only: %i[show index]
   post '/management/call', to: 'management_api#call'
 
-  # Figure out what branch you're on
-  # check diff between this and master
-  # request model, response model
-  # 1 -> 1 ratio create demo pages
-
+  # Scaffold generates url vars that aren't pluralized causing err, TODO open pull request
   # todo check if acctmngmnt callls need password reauth,
-  # formerly password was stored in cookies but that was removed
-  #
-  # Fake data for show response page
 
-  # add API Docs
-  # Get screen shots place them in form, for display ask about storage of photos
-
-  # todo add timezone drop down on form
-  # todo commands to automatically rotate cookies key in Docker file
-  # ask matt number of hours for start and end time, in regular or unix time
-  #
-  # Questions for team -> what default values on what calls, default IP addresses
-  #
-  # todo write guid readme
 end
