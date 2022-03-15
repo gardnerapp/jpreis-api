@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class DataApiController < ApplicationController
   include DataApiRequestHelper
   before_action -> { set_params_and_token 'data' }, :data_token_filter, :active_tokens, only: :prepare

@@ -39,6 +39,9 @@ Rails.application.routes.draw do
   resources :management_api, only: %i[show index]
   post '/management/call', to: 'management_api#call'
 
+  # todo fgure out api unix time stmp and wrk on cnvrzion
+  # It is the
+  # number of milliseconds elapsed since January 1, 197
   # Scaffold generates url vars that aren't pluralized causing err, TODO open pull request
   # todo check if acctmngmnt callls need password reauth,
 
