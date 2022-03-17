@@ -4,6 +4,8 @@ RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 RUN mkdir -p /var/app
 COPY . /var/app
 WORKDIR /var/app
+RUN bundle lock --remove-platform 1.13.3-x86_64-darwin
+RUN bundle lock --add-platform x86_64-linux
 RUN bundle install
 RUN rails db:migrate RAILS_ENV=development && rails db:seed RAILS_ENV=development
 CMD rails s -b 0.0.0.0
