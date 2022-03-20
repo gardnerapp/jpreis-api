@@ -8,8 +8,8 @@
         <%= f.input param.to_sym, input_html: { value: 'absolute' } %>
       <% elsif param == '&loginname=' %>
         <%= f.input param.to_sym, input_html: { value: 'example_username' } %>
-      <% elsif param.include? %w[&endtime &starttime] %>
-        <p>Format (Include Commas) : year, month, day, hour, min, second</p>
+      <% elsif param.include?('&endtime') || param.include?('&starttime') %>
+        <p>Format: year-month-day, hour:minute:second</p>
         <%= f.input param.to_sym, input_html: { value: Time.now } %>
       <% else %>
         <%= f.input param.to_sym %>

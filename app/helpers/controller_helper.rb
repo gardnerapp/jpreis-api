@@ -5,7 +5,7 @@ module ControllerHelper
     @params = params[:api].to_unsafe_h
     @call_name ||= @params['call_name']
     @params.delete 'call_name'
-    cookies["#{token_type}_token"] = 'foo' if Rails.env.development? #todo delete before pushing
+    # cookies["#{token_type}_token"] = 'foo' if Rails.env.development? todo delete before pushing
     @token = cookies["#{token_type}_token"]
   end
 
@@ -67,8 +67,8 @@ module ControllerHelper
                ['AWST', 'AWST'],
                ['ACST', 'ACST'],
                ['AEST', 'AEST'],
-               ['SST', 'SST'],
-               ['NZST', 'NZST'],
-               ['EDT', 'EDT']].freeze
+               %w[SST SST],
+               %w[NZST NZST],
+               %w[EDT EDT]].freeze
 
 end

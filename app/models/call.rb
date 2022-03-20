@@ -1,4 +1,5 @@
 class Call < ApplicationRecord
+  # todo encrypt database
 
   def headers(v)
     @headers = v
