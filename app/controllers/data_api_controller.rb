@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class DataApiController < ApplicationController
   include DataApiRequestHelper
-  before_action -> { set_params_and_token 'data' }, :data_token_filter, :active_tokens, only: :prepare
+  before_action -> { set_params_and_token 'data' },:active_tokens, only: :prepare #:data_token_filter, :active_tokens, only: :prepare
 
   def show
     @data_api = DataApi.find(params[:id])

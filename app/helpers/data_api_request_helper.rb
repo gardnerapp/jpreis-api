@@ -7,11 +7,12 @@ module DataApiRequestHelper
     params.delete(:endpoint)
     params.delete(:ip)
     params.delete_if { |_k, v| v.empty? }
+    params['&starttime='] = Time.parse(params['&starttime=']).to_i if params.key?('&starttime=')
+    params['&endtime='] = Time.parse(params['&endtime=']).to_i if params.key?('&endtime=')
     params.each_pair do |k, v|
-      # Convert start and end times to unix range
-      params[k] = Time.parse(v).to_i if %w[&endtime &starttime].include?(k)
       @url.insert(-1, "#{k}#{v}")
     end
+    @url.strip!
   end
 
 end
