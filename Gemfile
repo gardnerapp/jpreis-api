@@ -73,3 +73,7 @@ gem 'faraday', '~> 1.8'
 gem 'passenger', '~> 5.0', '>= 5.0.30'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
+gem 'capistrano', '~> 3.11'
+gem 'capistrano-rails', '~> 1.4'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
