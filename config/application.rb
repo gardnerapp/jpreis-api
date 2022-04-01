@@ -10,6 +10,9 @@ module JpreisApi
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    # TODO turn back on for production
+    config.action_controller.allow_forgery_protection = false
+
 
     # Configuration for the application, engines, and railties goes here.
     #
