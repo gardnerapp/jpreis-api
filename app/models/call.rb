@@ -1,5 +1,5 @@
 class Call < ApplicationRecord
-  encrypts :resp_body, :resp_status, :req_endpoint, :req_verb, :created_at, :update_at
+  #encrypts :resp_body, :resp_status, :req_endpoint, :req_verb, :created_at, :update_at
 
   def headers(v)
     @headers = v
