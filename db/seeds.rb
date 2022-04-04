@@ -3,6 +3,7 @@ Call.create(
   req_body: nil,
   req_verb: 'GET',
   resp_status: 202,
+  req: true,
   resp_body: "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?
 ><ns1:CommunicationHistoryResponse xmlns:ns1=\"http://www.ipc.com/bw\">
 <ns1:NumPagesAvailable>131</ns1:NumPagesAvailable>
