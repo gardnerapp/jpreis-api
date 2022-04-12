@@ -1,5 +1,6 @@
 Call.create(
   name: 'Communication History',
+  category: 'Data',
   req_endpoint: '192.168.0.1//svc/bw/data/communication-history?filtertype=foo&loginname=example_username&timezone=EST&timeformat=absolute&eventtype=bar',
   req_body: nil,
   req_verb: 'GET',

@@ -5,6 +5,9 @@
         <div class="flex">
           <!--
             TODO Add drop down item, move to the right, remove space between text
+            figure out how to get XML to pretty print
+            probably a library for XML but if not build one
+            section top borders should not go all the way to end
           -->
           <h3 class="text-lg leading-6 font-medium text-gray-900">
             Request Summary | <%= @call.name %>
@@ -41,12 +44,12 @@
             </div>
           <% end %>
         </div>
-        <div class="border" id="response">
-          <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <div class="border bg-white" id="response">
+          <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Response Status</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @call.resp_status %></dd>
           </div>
-          <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Response Body</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
               <%= @call.resp_body %>
