@@ -1,8 +1,11 @@
-<div>
-  <%= render "api_sessions/session_nav" %>
-  <h1 class="text-xl"><%= @data_api.name %></h1>
-  <h2 class="text-lg">Endpoint: <%= @data_api.endpoint %></h2>
-  <br/>
-  <p class="text-lg"> Please Enter Your Query Parameters</p>
-  <%= render 'data_api/form' %>
+<div class="container">
+  <div class="w-3/4 mx-auto">
+    <%= render "api_sessions/session_nav" %>
+    <h1 class="text-xl"><%= @data_api.name %></h1>
+    <h2 class="text-lg">Endpoint: <%= @data_api.endpoint %></h2>
+    <br/>
+    <p class="text-lg"> Please Enter Your Query Parameters</p>
+    <%= render 'data_api/form' %>
+  </div>
 </div>
+

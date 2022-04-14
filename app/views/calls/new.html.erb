@@ -1,21 +1,29 @@
 <div class="bg-white shadow overflow-hidden sm:rounded-lg">
   <div class="px-4 py-5 sm:px-6">
-    <h3 class="text-lg leading-6 font-medium text-gray-900">Request Summary | <%= Time.new.inspect %></h3>
-    <p class="mt-1 max-w-2xl text-sm text-gray-500"><%= @call_name %></p>
+    <h3 class="text-xl leading-6 font-medium text-gray-900">Request Summary | <%= Time.new.inspect %></h3>
+    <p class="mt-1 max-w-2xl text-xl text-gray-500"><%= @call_name %></p>
   </div>
   <div class="border-t border-gray-200">
     <dl>
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-        <dt class="text-sm font-medium text-gray-500">Active Tokens</dt>
-        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @active_tokens %></dd>
+        <dt class="text-md font-medium text-gray-500">Active Tokens</dt>
+        <dd class="mt-1 text-md text-gray-900 sm:mt-0 sm:col-span-2"><%= @active_tokens %></dd>
       </div>
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-        <dt class="text-sm font-medium text-gray-500">Request URL</dt>
-        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @url %></dd>
+        <dt class="text-md font-medium text-gray-500">Request URL |
+          <button onclick="copy()" class="ml-2 shadow-xl w-3/12 mx-auto px-2 py-2
+                      border border-transparent text-mlg font-medium rounded-md text-white bg-green-400
+                      hover:bg-green-500">
+            Copy
+          </button>
+        </dt>
+        <dd class="mt-1 text-md text-gray-900 sm:mt-0 sm:col-span-2" id="url">
+          <%= @url %>
+        </dd>
       </div>
       <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-        <dt class="text-sm font-medium text-gray-500">XML</dt>
-        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+        <dt class="text-md font-medium text-gray-500">XML</dt>
+        <dd class="mt-1 text-md text-gray-900 sm:mt-0 sm:col-span-2">
           <%= @body %>
         </dd>
       </div>
@@ -23,8 +31,17 @@
   </div>
   <div class="container mx-auto m-3">
 
-    <%= link_to "Send Request", call_path(@call),  class: "mt-2 shadow-xl w-3/12 flex items-center justify-center px-2 mx-auto py-2
+    <%= link_to "Send Request", call_path(@call), class: "mt-2 shadow-xl w-3/12 flex items-center justify-center px-2 mx-auto py-2
                       border border-transparent text-xl font-medium rounded-md text-white bg-blue-600
-                      hover:bg-blue-500 "%>
+                      hover:bg-blue-500"
+    %>
   </div>
 </div>
+
+<!-- Copy to clipboard -->
+<script type="application/javascript">
+    function copy() {
+        var copyText = document.getElementById("url");
+        navigator.clipboard.writeText(copyText.textContent);
+    }
+</script>
